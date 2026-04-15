@@ -1,0 +1,15 @@
+{
+   "name": "@providers/next-intl",
+   "version": "1.0.0",
+   "private": true,
+   "main": "./index.ts",
+   "types": "./index.ts",
+   "exports": {
+      "./next-intl/NextIntlProvider": "./next-intl/NextIntlProvider.tsx"
+   },
+   "dependencies": {
+      "next-intl": "^3.0.0",
+      "react": "^19.1.0",
+      "react-dom": "^19.1.0"
+   }
+}

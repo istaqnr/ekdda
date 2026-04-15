@@ -1,0 +1,455 @@
+{
+  "INDEX": {
+    "ACTIONS": "Actions",
+    "ACTIVATE": "Activate",
+    "ADD": "Add",
+    "ADD_NEW_ROW": "Add New Row",
+    "APPROVE": "Approve",
+    "APPROVE_PAYMENT": "Approve Payment",
+    "APPLY": "APPLY",
+
+    "BACK": "BACK",
+    "BENEF_PERS_INFO": "Beneficiary Personal Information",
+
+    "CANCEL": "Cancel",
+    "CANCEL_TAFT_OF": "Are you sure you want to cancel this payment?",
+    "CANCEL_ACTION": "Cancel",
+    "CHANGE": "Change",
+    "CLEAR": "CLEAR",
+    "CLOSE": "Close",
+    "COMPENSATION_DISPOSITION": "Calculate Compensation for Disposition",
+    "COMPENSATION_DIVESTMENT": "Calculate Compensation for Divestment",
+    "COMPLETE": "Submit",
+    "CONFIRM": "Confirm",
+    "CONFIRM_COMPLETE": "The Protocol is about to complete. Are you sure?",
+    "CONFIRM_SUBMIT": "Are you sure you want to proceed with the submission?",
+    "CORRECTION_BTN": "Correction",
+    "COPY": "Αντιγραφή",
+    "CREATE_ENTRY": "Create Entry",
+    "CULCULATE_TEMPORARY_SAVE": "Installment Calculation & Temporary Save",
+
+    "DEACTIVATE": "Deactivate and Edit",
+    "DEC_DETAILS": "Decision Details",
+    "DELETE": "Delete",
+    "DELETE_ENTRY": "Delete Entry",
+
+    "EDIT": "Edit",
+    "EDIT_ENTRY": "Edit Entry",
+    "EXPORT_GRID": "Export Grid",
+
+    "FIRST_PAGE": "First Page",
+    "FILE_UPLOAD": "File upload",
+    "FILTER": "Filter Results",
+    "FINALIZE": "Finalize",
+
+    "HEADER_TITLE": "Public Assets Management System (P.A.M.S)",
+    "HEADER_TITLE_CITIZEN": "Electronic Services for Citizens",
+    "HEADER_TITLE_PEF": "Electronic Services for Greek Public Organizations",
+
+    "KATIGORIES_YPOKATIGORIES": "Categories-Subcategories",
+
+    "LAST_PAGE": "Last Page",
+    "LEGAL_PREREQUISITES": "Are you sure you want to proceed with the submission for approval of the legal prerequisites check?",
+    "LOADING": "Loading...",
+    "LOGIN": "Login",
+    "LOGIN_EXPIRED": "Login Expired",
+    "LOGOUT": "Logout",
+
+    "MASS_REMOVE_LIST": "Are you sure you want to proceed with mass removal from the list?",
+    "MASS_REMOVE_SUCCESS": "Mass removal of the item from the list was completed successfully.",
+
+    "NEW_ANNOUNCEMENT": "New Announcement",
+    "NEW_PROTOCOL": "New Protocol",
+    "NEXT_PAGE": "Next Page",
+    "NO": "No",
+    "NOTIFICATIONS": "Notifications",
+    "NOTIF_WARN": "If you don't see your notifications, check if the display mute is active in your computer settings.",
+
+    "OF": "of",
+
+    "PAGE": "Page",
+    "PASSWORD": "Password",
+    "PAYMENT_CUSTODY_EXPENSES": "Payment of the Remaining Custody Fees",
+    "PLEASE_LOGIN": "Please login to access the application",
+    "PREVIOUS_PAGE": "Previous Page",
+    "PRINT": "Print",
+    "PROSSESING": "Processing...",
+    "PROTOKOL_PARADOSIS": "Are you sure you want to create delivery protocols for the selected items?",
+
+    "RECORD_DELETED": "Record deleted",
+    "RECORD_INSERT": "Record insert",
+    "RECORD_UPDATED": "Record updated",
+    "REMOVE": "Remove",
+    "REMOVE_FILE": "remove file",
+    "REPORT": "REPORT",
+    "RETRIEVE_FAILED": "Load Error",
+    "ROWS_PER_PAGE": "Rows per page:",
+
+    "SAVE": "Save",
+    "SAVE_FAILED": "Save Failed",
+    "SAVE_SUCCESS": "Saved",
+    "SAVING": "Saving...",
+    "SEARCH": "Search",
+    "SEE_MORE": "See more",
+    "SELECT_FILE": "Select a file",
+    "SETTINGS": "Settings",
+    "SOMETHING_WENT_WRONG": "Something went wrong...",
+    "START_INSPECTION": "Start Inspection",
+    "STORAGE_COSTS": "Calculate Storage Costs",
+    "STORAGE_COSTS_CALCULATION": "Calculate remaining storage costs",
+    "SUBMIT": "Submit",
+    "SUBMIT_SUCCESS": "Successful Submission",
+
+    "TAXIS_LOGIN": "Login with TaxisNet",
+    "TEMPORARY_SAVE": "Temporary Save",
+    "TITLE": "Hello world!",
+    "TOGGLE_COLUMNS_VISIBILITY": "Toggle Columns Visibility",
+    "TODAY": "TODAY",
+
+    "REJECT": "Refund",
+    "REJECT_BTN": "Reject",
+
+    "UPDATE": "UPDATE",
+    "UPLOAD_FILE": "upload a file",
+    "UPLOAD_SUCCESS": "File saved",
+    "USER_PROFILE": "User Profile",
+    "USERNAME": "Username",
+
+    "VIEW": "View",
+    "VIEW_COL": "View Columns",
+    "VIEW_ENTRY": "View Entry",
+    "VISIBLE_COLUMNS": "Visible Columns",
+
+    "WAITING": "Waiting...",
+    "WELCOME_MESSAGE": "Welcome to DDDY",
+
+    "YES": "Yes",
+
+    "ASSIGN_TASKS": "Assign Tasks",
+
+    "PAYMENT_DETAILS": "Payment Details",
+    "AMOUNT": "Amount",
+    "ANNOUNCEMENT_NUM": "Announcement Number",
+    "ANNOUNCEMENT_MATERIAL": "Material",
+    "PAY_WITH_IRIS": "Pay with IRIS",
+    "PAY_WITH_CARD": "Pay with Card",
+    "PAY_WITH_RF_QR": "Pay with RF/QR"
+  },
+  "ERROR": {
+    "A_TO_Z": "Only allowed characters are Latin Capital letters (A-Z).",
+    "A_TO_Z_AND_NUMBER": "Only allowed characters are Latin Capital letters (A-Z) and numbers (0-9).",
+    "AP_RZ_AND_NUMBER": "Only allowed characters are Latin Capital letters (A-Z) except for Q and numbers (0-9).",
+    "A_TO_Z_AND_NUMBER_SPECIAL": "Only allowed characters are Latin Capital letters (A-Z), numbers (0-9) and special characters (.,/,space)",
+    "A_TO_Z_HYPHENS_AND_NUMBERS": "Only allowed characters are Latin Capital letters (A-Z), hyphens (-) and numbers (0-9).",
+    "AFM_9_DIGITS": "VAT Number must be 9 digits long",
+
+    "CHARACTERS_NOT_ALLOWED": "The following characters are not allowed",
+    "CHARACTERS_ALLOWED": "The following characters are allowed",
+    "SPECIAL_CHARACTERS_ALLOWED": "The only special characters are allowed",
+
+    "GREEK_AND_NUMBERS": "Only allowed characters are Greek Capital letters (A-Ω) and numbers (0-9).",
+    "ONLY_NUMBERS": "Only numbers are allowed",
+
+    "DATE": "Invalid Date",
+    "DATE_BEFORE_OR_EQUAL_TO": "Maximum available date is",
+
+    "FIELD_IS_REQUIRED": "Field is required",
+    "FIELD_IS_POSITIVE": "Value must be greater than or equal to 0",
+    "FIELD_IS_LESS_THAN_100": "Value must be less than 100",
+
+    "INVALID_CREDENTIALS": "Invalid credentials. Please check your username and password.",
+    "INVALID_IBAN": "Invalid IBAN",
+    "INVALID_YEAR": "Invalid year",
+
+    "LENGTH": "Length of characters is",
+
+    "MAT_STS_IS_ODP": "Wrong protocol status. Bulk action is only allowed in Scheduled for Delivery status",
+    "MAX_GREATER_THAN_MIN": "The maximum amount must be greater than or equal to the minimum",
+    "MAX_LENGTH": "Maximum length of characters is",
+    "MUST_ACCEPT_TERMS": "You must accept the terms",
+    "MUST_HAVE_ONE_COLUMN": "Table should contain at least one column",
+
+    "NO_ROWS_SELECTED": "No rows selected",
+    "NOT_VALID_AFM": "VAT Number is not valid",
+    "NOT_VALID_EMAIL": "Email is not valid",
+    "NUMBER_GREATER_OR_EQUAL_TO": "Value should be greater than or equal to",
+    "NUMBER_GREATER_THAN": "Value should be greater than",
+
+    "PERSENTAGE_CHANGE": "The percentage must be different from 0 and within the range of [-99, 99].",
+
+    "TIME": "Invalid Time",
+
+    "VALID_YEAR_RANGE_TO": "up to",
+    "VALID_YEARS_RANGE_FROM": "Valid years range from",
+    "VALUE_GRATER_OR_EQUAL_TO": "Value should be greater than or equal to",
+    "VALUE_LOWER_OR_EQUAL_TO": "Value should be lower than or equal to",
+
+    "PAGE_NOT_FOUND": "The content you are looking for does not exist.",
+    "PRINT_RECEIPT": "Print Receipt",
+    "PRINT_RECEIPT_RETURN": "Print Return Receipt"
+  },
+  "ACMS": {
+    "ABRV": "Abbreviation",
+    "ACCESS_MANAGEMENT": "Access Management",
+    "ACCESS_REQUEST": "Access Request",
+    "ACCESS_REQUESTS": "Access Requests",
+    "ACCESS_REQUESTS_SUBMISSION": "Submit new request in the application",
+    "ACTIONS": "Actions",
+    "ACTIVE_ACCOUNT": "ACTIVE ACCOUNT INDICATION",
+    "ADDRESS": "Address",
+    "ADMIN": "Administrator",
+    "AFM": "VAT",
+    "APPLICATIONS": "Applications",
+    "APPROVED": "Approved",
+    "AUTHORITY_ORG": "Authority",
+
+    "CAN_DELETE": "Can Delete",
+    "CAN_EDIT": "Can Edit",
+    "CAN_INSERT": "Can Insert",
+    "CAN_READ": "Can Read",
+    "CAN_SELECT": "Can Select",
+    "CAN_USE": "Can use",
+    "CAN_VIEW": "Can View",
+    "CD": "Code",
+    "CODE_ROLE": "Role Code",
+    "COMMENTSTXT": "Comments",
+    "CONTINUE": "Continue",
+
+    "DASHBOARD": "Dashboard",
+    "DEFLEVELCD": "Definition Level",
+    "DESCRIPTION": "Description",
+    "DETAILED": "DETAILED",
+
+    "ELEMENT_TYPE": "Type",
+    "ELEMENT_TYPES": "Element Types",
+    "EMAIL": "Email",
+    "ENABLED": "Enabled",
+    "END_DATE": "End Date",
+    "END_DT": "End Date",
+    "ENTITIES": "Entities",
+    "ENTITY_TYPE": "Entity Type",
+
+    "FATHERS_NAME": "Father's Name",
+    "FIELD": "Field",
+    "FIRSTNAME": "First Name",
+
+    "GROUPCD": "Group Code",
+
+    "HANDLE_DATETIME": "Handling Date",
+    "HANDLED_DT": "Handled Date",
+    "HANDLER_DESC": "Handling User",
+
+    "INDEX_ORDER": "Index Order",
+    "INVALID_CREDENTIALS": "Invalid credentials. Please check your username and password.",
+    "IS_FINAL": "Final Status Indicator",
+
+    "LABEL": "Label",
+    "LABELS": "Labels",
+    "LASTNAME": "Last Name",
+
+    "MANAGEMENT_FILE_UPLOAD": "File Management",
+    "MENU": "Menu",
+    "MENU_PER_ROLE": "Menu per Role",
+    "MESSAGES": "Messages",
+    "MESSKEY": "Code",
+    "MESSLABEL": "Description",
+    "MESSTYPE": "Message Type Code",
+
+    "NEW_REQUEST": "New Request",
+    "NEW_REQUESTS": "New Requests",
+    "NEW_REQUESTS_SUBTITLE": "New requests pending approval",
+    "NEW_STATUS": "New Status",
+
+    "ORG": "Organization",
+    "ORG_DESCRIPTION": "Organization/Agency",
+    "ORG_PROFILE": "Default Organization",
+    "ORG_TYPES_ABOUT": "Access About for",
+    "ORG_USERS": "Organization users",
+    "ORGANIZATION": "Organization",
+    "ORGANIZATIONS": "Organizations",
+
+    "PAGE_ENTITIES": "PAGE ENTITIES",
+    "PAGES": "Pages",
+    "PARENT_COMPONENT": "Parent Component",
+    "PARENTALELIGIBILITYFLG": "Parent Object",
+    "PENDING_REQUESTS": "PENDING REQUESTS",
+    "PENDING_REQUESTS_SUBTITLE": "Requests waiting for action",
+    "PERMSLISTFLG": "Permissions List",
+    "PERMS_PER_PAGE": "Permissions per Page",
+    "PHONE": "Phone",
+
+    "REQUEST_DATETIME": "Request Date",
+    "REQUEST_DT": "Submission Date",
+    "REQUEST_STATUS": "Request Status",
+    "RESOURCE_LABEL": "Description",
+    "RESOURCE_LABEL_KEY": "Resource",
+    "ROLE": "Role",
+    "ROLES": "Roles",
+    "ROLES_REQUEST_ADD": "User Request Roles",
+
+    "SEC_GEN_PARAMS": "Parameters",
+    "SECOND_PHONE": "Phone (2nd number)",
+    "SEVERITYLEVEL": "Control Criticality Indicator",
+    "SOURCE_LABEL_KEY": "Source key",
+    "START_DATE": "Start Date",
+    "START_DT": "Start Date",
+    "STATUS": "Status",
+    "SUPERVISOR": "Supervisor",
+
+    "TAG_NAME": "Tag Name",
+    "TYPE": "Type",
+
+    "URL": "API - URLs",
+    "USER": "User",
+    "USER_INFO": "User Info",
+    "USER_PASSWORD": "Password",
+    "USER_USERNAME": "Username",
+    "USERNAME": "Username",
+    "USERS": "User Management / Users",
+    "USER_EMAIL_TOASTER": "Please fill in your email and IBAN to continue."
+  },
+  "ANAGELIA": {
+    "REASON_FOR_LATEST_STATUS_CHANGE": "Reason for latest status change"
+  },
+  "CALENDAR": {
+    "ANAGELIA": "Announcement",
+    "ASSIGNED_TO": "Assigned to",
+    "AVAILABLE_HOURS": "Available Hours",
+    "AVAILABLE_POSITION": "available positions",
+    "APPOINTMENTS": "Appointments",
+    "APPOINT_TYPE": "Appointment Type",
+
+    "BY_AVAILABILITY": "By Availability",
+
+    "CANCEL_APPOINTMENT_WARNING": "The Appointment will be cancelled!",
+    "CATEGORY": "Appointment Category",
+    "CREATE_APPOINTMENT": "Create Appointment",
+    "CUSTOM_HOUR_END": "End hour",
+    "CUSTOM_HOUR_START": "Start hour",
+    "CUSTOM_TIME": "Custom Time",
+
+    "DATE": "Appointment Date",
+    "DAYS_TIMES_EVENTS": {
+      "agenda": "List",
+      "allDay": "All day",
+      "date": "Date",
+      "day": "Day",
+      "event": "Event",
+      "month": "Month",
+      "next": "Next",
+      "previous": "Previous",
+      "time": "Hour",
+      "today": "Today",
+      "week": "Week"
+    },
+    "DELETE_APPOINTMENT": "Delete Appointment",
+    "EDIT_APPOINTMENT": "Edit Appointment",
+
+    "EIDOS": "Kind of",
+
+    "HOUR_RANGE": "Hour Range",
+
+    "INSERT_APPOINTMENT": "New Appointment",
+
+    "MAT_CATEG": "Material Category",
+    "MAT_OBJ_TYPE": "Material Object Type",
+
+    "NO_AVAILABLE_HOURS": "No available hours",
+
+    "PRESELECTED_TIME": "Preselected time",
+    "PRESELECTED_DATE": "Preselected date",
+
+    "SELECT_TIME_PROMPT": "select an hours range",
+
+    "TIME_END_BEFORE_START": "the end must be greater than start time",
+    "TIME_INVALID": "invalid time",
+
+    "USER": "User",
+
+    "VIEW_APPOINTMENT": "Appointment Info",
+
+    "YPALLILOS": "Employee"
+  },
+  "DAYS": {
+    "FRIDAY": "Friday",
+    "MONDAY": "Monday",
+    "SATURDAY": "Saturday",
+    "SUNDAY": "Sunday",
+    "THURSDAY": "Thursday",
+    "TUESDAY": "Tuesday",
+    "WEDNESDAY": "Wednesday"
+  },
+  "ERP": {
+    "REPORT_FORM": "Report Form",
+    "REPORT_FORM_LABEL": "Select Report"
+  },
+  "FILTERS": {
+    "ALL": "All",
+
+    "COST_ESTIMATES_APPROVAL": "Cost Estimates for Approval",
+
+    "FINALIZED": "Finalized",
+
+    "MY_COST_ESTIMATES": "My Cost Estimates",
+
+    "PENDING": "Pending",
+    "PENDING_COST_ESTIMATES": "Pending Cost Estimates",
+    "PENDING_COSTING_CORRECTIONS": "Pending Costing Corrections",
+    "PENDING_FOR_REVIEW": "Pending for Review",
+    "PENDING_FORM_APPLICANT": "Pending from Applicant",
+    "PENDING_FROM_POSSESSION": "Pending from Possession",
+
+    "PENDING_REQUESTS_FILTER": "Pending Requests",
+    "PENDING_PUBLIC_ENTITY_REQUESTS_FILTER": "Pending Allocation Requests to Public Entity",
+    "PENDING_AADE_REQUESTS_FILTER": "Pending Allocation Requests to AADE",
+    "ALL_REQUESTS_FILTER": "All",
+    "FINALIZED_REQUESTS_FILTER": "Finalized",
+
+    "WON_AUCTIONS": "Won Auctions",
+    "LOST_AUCTIONS": "Lost Auctions"
+  },
+  "MENU": {
+    "citizen": "Citizen",
+    "default": "Menu",
+    "erp": "ERP",
+    "pef": "External Organization"
+  },
+  "OPERATORS": {
+    "AFTER": "After",
+    "AND": "And",
+
+    "BEFORE": "Before",
+    "BETWEEN": "Between",
+    "BIGGER": "Bigger",
+    "BIGGER_THAN": "Bigger than",
+
+    "CONTAINS": "Contains",
+
+    "ENDS_WITH": "Ends with",
+    "EQUALS": "Equals",
+
+    "IS": "Is",
+    "IS_EMPTY": "Is empty",
+    "IS_NOT_EMPTY": "Is not empty",
+
+    "LESS": "Less",
+    "LESS_THAN": "Less than",
+
+    "NOT": "Not",
+    "NOT_BETWEEN": "Not between",
+    "NOT_EQUALS": "Not Equal",
+
+    "ON_OR_AFTER": "On or After",
+    "ON_OR_BEFORE": "On or Before",
+
+    "STARTS_WITH": "Starts with"
+  },
+  "YPIRESIES_FOREIS": {
+    "APOTHIKES_YPIRESIAS": "Service Stores",
+
+    "STOIXEIA_EPIKOINONIAS_YPIRESIAS": "Service Contact info",
+    "STOIXEIA_PLIROMIS_YPIRESIAS": "Service Payment info",
+
+    "XRISTES_YPITESIAS": "Service Users"
+  }
+}

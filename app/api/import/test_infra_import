@@ -1,0 +1,31 @@
+Test infrastructure import
+curl -X POST http://localhost:3000/api/import/raw \
+  -H "Content-Type: application/json" \
+  -d '{
+    "sourceSystem": "TestCSV",
+    "type": "infrastructure",
+    "data": {
+      "id": "track-001",
+      "label": "Main Line Section A",
+      "eraClass": "http://data.europa.eu/949/NetElement",
+      "countryCode": "DE",
+      "nuts3Code": "DE600",
+      "latitude": 52.52,
+      "longitude": 13.405
+    }
+  }'
+
+Test vehicle import
+curl -X POST http://localhost:3000/api/import/raw \
+  -H "Content-Type: application/json" \
+  -d '{
+    "sourceSystem": "LegacyERATVExport",
+    "type": "vehicle",
+    "data": {
+      "id": "veh-ICE3",
+      "label": "ICE 3 EMU",
+      "eraClass": "http://data.europa.eu/949/VehicleType",
+      "maxSpeedKmH": 300,
+      "brakingModel": "NationalValues-BrakeModel-DE-2025"
+    }
+  }'

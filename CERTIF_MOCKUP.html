@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ΟΠΣ ΕΚΔΔΑ — Πιστοποίηση</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0f1f3d;
+  --navy2: #162a4f;
+  --navy3: #1e3a6e;
+  --accent: #1e88e5;
+  --accent2: #42a5f5;
+  --gold: #f59e0b;
+  --green: #10b981;
+  --red: #ef4444;
+  --orange: #f97316;
+  --purple: #8b5cf6;
+  --bg: #f0f4f9;
+  --card: #ffffff;
+  --border: #dde3ee;
+  --text: #1a2540;
+  --text2: #4a5778;
+  --text3: #7c8db5;
+  --sidebar-w: 230px;
+  --header-h: 52px;
+  --font: 'DM Sans', sans-serif;
+  --mono: 'DM Mono', monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column}
+
+/* ── HEADER ── */
+.header{position:fixed;top:0;left:0;right:0;height:var(--header-h);background:var(--navy);display:flex;align-items:center;padding:0 16px 0 0;z-index:100;gap:0}
+.header-logo{width:var(--sidebar-w);flex-shrink:0;display:flex;align-items:center;gap:10px;padding:0 16px;border-right:1px solid rgba(255,255,255,0.08)}
+.logo-badge{width:28px;height:28px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:#fff;letter-spacing:-0.5px}
+.logo-title{color:#fff;font-size:13px;font-weight:600;line-height:1.2}
+.logo-sub{color:rgba(255,255,255,0.45);font-size:10px}
+.header-breadcrumb{flex:1;padding:0 20px;color:rgba(255,255,255,0.7);font-size:12px;display:flex;align-items:center;gap:6px}
+.header-breadcrumb span{color:rgba(255,255,255,0.35)}
+.header-actions{display:flex;align-items:center;gap:8px;padding-right:8px}
+.header-btn{width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,0.08);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);font-size:14px;transition:.15s}
+.header-btn:hover{background:rgba(255,255,255,0.15);color:#fff}
+.header-user{display:flex;align-items:center;gap:8px;padding:4px 10px;background:rgba(255,255,255,0.08);border-radius:8px;cursor:pointer}
+.header-user-avatar{width:24px;height:24px;border-radius:6px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff}
+.header-user-name{font-size:12px;color:rgba(255,255,255,0.85);font-weight:500}
+
+/* ── SIDEBAR ── */
+.sidebar{position:fixed;top:var(--header-h);left:0;width:var(--sidebar-w);bottom:0;background:var(--navy);overflow-y:auto;z-index:90;padding:12px 0}
+.sidebar::-webkit-scrollbar{width:3px}.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:3px}
+.nav-section{padding:0 12px;margin-bottom:4px}
+.nav-label{font-size:9px;font-weight:600;color:rgba(255,255,255,0.28);letter-spacing:1px;text-transform:uppercase;padding:8px 4px 4px}
+.nav-item{display:flex;align-items:center;gap:9px;padding:7px 10px;border-radius:8px;cursor:pointer;transition:.15s;color:rgba(255,255,255,0.55);font-size:12.5px;font-weight:400;position:relative}
+.nav-item:hover{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.85)}
+.nav-item.active{background:rgba(30,136,229,0.2);color:#fff;font-weight:500}
+.nav-item.active::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:3px;background:var(--accent);border-radius:0 3px 3px 0}
+.nav-icon{width:16px;text-align:center;font-size:14px;flex-shrink:0}
+.nav-badge{margin-left:auto;background:var(--accent);color:#fff;font-size:9px;font-weight:700;padding:1px 5px;border-radius:10px}
+.nav-badge.warn{background:var(--gold)}
+.nav-divider{height:1px;background:rgba(255,255,255,0.06);margin:8px 12px}
+
+/* ── MAIN ── */
+.main{margin-left:var(--sidebar-w);margin-top:var(--header-h);padding:24px;min-height:calc(100vh - var(--header-h))}
+.screen{display:none}.screen.active{display:block}
+
+/* ── PAGE HEADER ── */
+.page-hd{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;gap:12px}
+.page-title{font-size:20px;font-weight:600;color:var(--text);line-height:1}
+.page-sub{font-size:12px;color:var(--text3);margin-top:4px}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:8px;font-size:12.5px;font-weight:500;cursor:pointer;border:none;transition:.15s;font-family:var(--font)}
+.btn-primary{background:var(--accent);color:#fff}.btn-primary:hover{background:#1976d2}
+.btn-secondary{background:#fff;color:var(--text);border:1px solid var(--border)}.btn-secondary:hover{background:var(--bg)}
+.btn-success{background:#dcfce7;color:#166534}.btn-success:hover{background:#bbf7d0}
+.btn-danger{background:#fee2e2;color:#991b1b}.btn-danger:hover{background:#fecaca}
+.btn-warn{background:#fef3c7;color:#92400e}.btn-warn:hover{background:#fde68a}
+.btn-ghost{background:transparent;color:var(--text2)}.btn-ghost:hover{background:var(--bg)}
+.btn-sm{padding:4px 10px;font-size:11px}
+.btn-purple{background:#ede9fe;color:#5b21b6}.btn-purple:hover{background:#ddd6fe}
+
+/* ── STATS ── */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:24px}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.stat-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+.stat-val{font-size:24px;font-weight:700;color:var(--text);line-height:1}
+.stat-lbl{font-size:11px;color:var(--text3);font-weight:500}
+.stat-delta{font-size:11px;color:var(--green)}
+
+/* ── CARDS ── */
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px}
+.card-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.card-title{font-size:13px;font-weight:600;color:var(--text)}
+.card-sub{font-size:11px;color:var(--text3);margin-top:2px}
+
+/* ── TABLE ── */
+.tbl-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{background:#f8fafd;padding:10px 12px;text-align:left;font-weight:600;font-size:11px;color:var(--text2);border-bottom:1px solid var(--border);white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid #f0f4f9;color:var(--text);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#f8fafd;cursor:pointer}
+.tbl-actions{display:flex;gap:6px;justify-content:flex-end}
+
+/* ── STATUS BADGES ── */
+.status{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:20px;font-size:10.5px;font-weight:600;white-space:nowrap}
+.status::before{content:'';width:5px;height:5px;border-radius:50%;background:currentColor;opacity:0.7}
+.s-draft{background:#f1f5f9;color:#475569}
+.s-submitted{background:#dbeafe;color:#1d4ed8}
+.s-completeness{background:#ede9fe;color:#7c3aed}
+.s-incomplete{background:#fef3c7;color:#92400e}
+.s-review{background:#e0f2fe;color:#0369a1}
+.s-clarif{background:#ffedd5;color:#c2410c}
+.s-kep{background:#fce7f3;color:#9d174d}
+.s-certified{background:#dcfce7;color:#166534}
+.s-notcert{background:#fee2e2;color:#991b1b}
+.s-withdrawn{background:#f1f5f9;color:#64748b}
+.s-approved{background:#dcfce7;color:#166534}
+.s-locked{background:#f0fdf4;color:#166534}
+.s-migrated{background:#fef9c3;color:#713f12}
+.s-published{background:#dcfce7;color:#166534}
+.s-pending{background:#fef3c7;color:#92400e}
+.s-pass{background:#dcfce7;color:#166534}
+.s-fail{background:#fee2e2;color:#991b1b}
+
+/* ── FORM ── */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-grid-3{grid-template-columns:1fr 1fr 1fr}
+.form-full{grid-column:1/-1}
+.fld{display:flex;flex-direction:column;gap:4px}
+.fld label{font-size:11px;font-weight:600;color:var(--text2)}
+.fld input,.fld select,.fld textarea{padding:8px 10px;border:1px solid var(--border);border-radius:8px;font-family:var(--font);font-size:12.5px;color:var(--text);background:#fff;outline:none;transition:.15s}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(30,136,229,0.1)}
+.fld textarea{resize:vertical;min-height:80px}
+.fld-note{font-size:10px;color:var(--text3)}
+.required::after{content:' *';color:var(--red)}
+
+/* ── MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(10,20,50,0.45);z-index:500;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:16px;width:100%;max-width:560px;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.2)}
+.modal-hd{padding:20px 24px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.modal-title{font-size:15px;font-weight:600;color:var(--text)}
+.modal-sub{font-size:11.5px;color:var(--text3);margin-top:2px}
+.modal-close{width:28px;height:28px;border-radius:6px;background:var(--bg);border:none;cursor:pointer;font-size:14px;color:var(--text2);flex-shrink:0}
+.modal-body{padding:16px 24px}
+.modal-ft{padding:14px 24px 20px;display:flex;gap:8px;justify-content:flex-end;border-top:1px solid var(--border)}
+
+/* ── TIMELINE ── */
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{display:flex;gap:14px;padding-bottom:16px;position:relative}
+.tl-item:not(:last-child)::after{content:'';position:absolute;left:11px;top:24px;bottom:0;width:1px;background:var(--border)}
+.tl-dot{width:22px;height:22px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;z-index:1}
+.tl-blue{background:#dbeafe;color:#1d4ed8}
+.tl-green{background:#dcfce7;color:#166534}
+.tl-gold{background:#fef3c7;color:#92400e}
+.tl-red{background:#fee2e2;color:#991b1b}
+.tl-gray{background:#f1f5f9;color:#64748b}
+.tl-purple{background:#ede9fe;color:#7c3aed}
+.tl-info{flex:1}
+.tl-action{font-size:12px;font-weight:600;color:var(--text)}
+.tl-meta{font-size:11px;color:var(--text3);margin-top:2px}
+.tl-comment{font-size:11.5px;color:var(--text2);margin-top:4px;padding:6px 10px;background:var(--bg);border-radius:6px;border-left:3px solid var(--accent)}
+
+/* ── VERSION CHAIN ── */
+.ver-chain{display:flex;gap:0;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.ver-node{display:flex;flex-direction:column;align-items:center;gap:4px;position:relative}
+.ver-node:not(:first-child)::before{content:'→';position:absolute;left:-18px;top:12px;color:var(--text3);font-size:14px}
+.ver-bubble{padding:6px 12px;border-radius:20px;font-size:11px;font-weight:600;cursor:pointer;transition:.15s;border:2px solid transparent}
+.ver-bubble.locked{background:#dcfce7;color:#166534;border-color:#86efac}
+.ver-bubble.draft{background:#f0f9ff;color:#0369a1;border-color:#bae6fd}
+.ver-bubble.retired{background:#f1f5f9;color:#94a3b8;border-color:#e2e8f0}
+.ver-bubble.migrated{background:#fef9c3;color:#713f12;border-color:#fde047}
+.ver-bubble:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+.ver-lbl{font-size:9px;color:var(--text3);font-weight:500}
+.ver-gap{width:32px;flex-shrink:0}
+
+/* ── UNIT CARDS ── */
+.unit-list{display:flex;flex-direction:column;gap:8px}
+.unit-item{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px 14px;display:flex;align-items:flex-start;gap:12px}
+.unit-num{width:28px;height:28px;border-radius:8px;background:var(--navy3);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.unit-info{flex:1}
+.unit-title{font-size:12.5px;font-weight:600;color:var(--text)}
+.unit-meta{font-size:11px;color:var(--text3);margin-top:2px;display:flex;gap:10px}
+.unit-clob{font-size:11px;color:var(--text2);margin-top:6px;padding:6px 10px;background:#fff;border-radius:6px;border-left:3px solid var(--accent);font-style:italic}
+.unit-clob.missing{border-left-color:var(--gold);color:var(--gold);background:#fffbeb}
+.lock-icon{font-size:13px}
+
+/* ── VOTE GRID ── */
+.vote-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
+.vote-card{border:2px solid var(--border);border-radius:10px;padding:12px;text-align:center;cursor:pointer;transition:.15s}
+.vote-card:hover{border-color:var(--accent);background:#f0f7ff}
+.vote-card.selected-for{border-color:var(--green);background:#f0fdf4}
+.vote-card.selected-against{border-color:var(--red);background:#fff5f5}
+.vote-card.selected-abstain{border-color:var(--gold);background:#fffbeb}
+.vote-emoji{font-size:22px;margin-bottom:4px}
+.vote-label{font-size:11px;font-weight:600;color:var(--text2)}
+
+/* ── BULK IMPORT ── */
+.import-zone{border:2px dashed var(--border);border-radius:12px;padding:24px;text-align:center;background:#f8fafd;cursor:pointer;transition:.15s}
+.import-zone:hover{border-color:var(--accent);background:#f0f7ff}
+.import-zone-icon{font-size:28px;margin-bottom:8px}
+.import-zone-title{font-size:13px;font-weight:600;color:var(--text)}
+.import-zone-sub{font-size:11px;color:var(--text3);margin-top:4px}
+
+/* ── PROGRESS BAR ── */
+.progress-bar{height:6px;background:var(--border);border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;border-radius:3px;background:var(--accent);transition:width 0.5s}
+.progress-fill.green{background:var(--green)}
+.progress-fill.gold{background:var(--gold)}
+
+/* ── TABS ── */
+.tabs{display:flex;gap:2px;margin-bottom:16px;background:var(--bg);padding:3px;border-radius:10px;width:fit-content}
+.tab{padding:6px 14px;border-radius:8px;font-size:12px;font-weight:500;cursor:pointer;color:var(--text2);transition:.15s}
+.tab.active{background:#fff;color:var(--text);box-shadow:0 1px 4px rgba(0,0,0,0.08)}
+
+/* ── ALERTS ── */
+.alert{padding:10px 14px;border-radius:8px;font-size:12px;margin-bottom:12px;display:flex;gap:8px;align-items:flex-start}
+.alert-warn{background:#fffbeb;border:1px solid #fde68a;color:#92400e}
+.alert-info{background:#eff6ff;border:1px solid #bfdbfe;color:#1d4ed8}
+.alert-success{background:#f0fdf4;border:1px solid #bbf7d0;color:#166534}
+.alert-icon{flex-shrink:0;font-size:14px}
+
+/* ── PILLS ── */
+.pill{display:inline-block;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:600;background:#e0e7ff;color:#3730a3}
+.pill-green{background:#dcfce7;color:#166534}
+.pill-gold{background:#fef3c7;color:#92400e}
+
+/* ── MISC ── */
+.text-mono{font-family:var(--mono);font-size:11.5px}
+.divider{height:1px;background:var(--border);margin:16px 0}
+.empty-state{text-align:center;padding:32px;color:var(--text3)}
+.empty-state-icon{font-size:32px;margin-bottom:8px}
+.empty-state-text{font-size:13px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.right{margin-left:auto}
+.flex{display:flex;gap:8px;align-items:center}
+.small{font-size:11px;color:var(--text3)}
+
+/* ── PORTAL FORM ── */
+.portal-wrap{max-width:700px;margin:0 auto}
+.portal-step{display:flex;gap:8px;align-items:center;margin-bottom:20px}
+.portal-step-num{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;background:var(--accent);color:#fff;flex-shrink:0}
+.portal-step-num.done{background:var(--green)}
+.portal-step-num.inactive{background:var(--border);color:var(--text3)}
+.portal-step-line{flex:1;height:1px;background:var(--border)}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-logo">
+    <div class="logo-badge">ΕΚ</div>
+    <div><div class="logo-title">ΟΠΣ ΕΚΔΔΑ</div><div class="logo-sub">Πιστοποίηση v2.0</div></div>
+  </div>
+  <div class="header-breadcrumb" id="breadcrumb">
+    <span>Πιστοποίηση</span> › Αρχική
+  </div>
+  <div class="header-actions">
+    <button class="header-btn" title="Ειδοποιήσεις">🔔</button>
+    <button class="header-btn" title="Βοήθεια">❓</button>
+    <div class="header-user">
+      <div class="header-user-avatar">ΜΑ</div>
+      <div class="header-user-name">Μ. Αντωνίου · CERT_ADMIN</div>
+    </div>
+  </div>
+</header>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="nav-section">
+    <div class="nav-item active" onclick="show('dash','Αρχική')">
+      <div class="nav-icon">📊</div>Dashboard
+    </div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Φάκελοι Πιστοποίησης</div>
+    <div class="nav-item" onclick="show('issuances','Φάκελοι Πιστοποίησης')">
+      <div class="nav-icon">📁</div>Όλοι οι Φάκελοι
+      <span class="nav-badge">14</span>
+    </div>
+    <div class="nav-item" onclick="show('detail','Φάκελος CERT-EDU-2025-0012')">
+      <div class="nav-icon">📄</div>Ενεργός Φάκελος
+    </div>
+    <div class="nav-item" onclick="show('kep','Συνεδρίαση ΚΕΠ')">
+      <div class="nav-icon">⚖️</div>Συνεδρίαση ΚΕΠ
+      <span class="nav-badge warn">1</span>
+    </div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Σχεδιασμός Ύλης</div>
+    <div class="nav-item" onclick="show('syllabus','Διαχείριση Ύλης — Syllabus Versioning')">
+      <div class="nav-icon">📚</div>Εκδόσεις Ύλης
+    </div>
+    <div class="nav-item" onclick="show('df_edit','Επεξεργασία Ύλης v3 DRAFT')">
+      <div class="nav-icon">✏️</div>Επεξεργασία Ύλης
+    </div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Τράπεζα Θεμάτων</div>
+    <div class="nav-item" onclick="show('qbank','Τράπεζα Θεμάτων')">
+      <div class="nav-icon">❓</div>QBank
+    </div>
+    <div class="nav-item" onclick="show('qimport','Bulk Import Ερωτήσεων')">
+      <div class="nav-icon">📥</div>Μαζική Εισαγωγή
+    </div>
+  </div>
+
+  <div class="nav-divider"></div>
+
+  <div class="nav-section">
+    <div class="nav-label">Φορείς & Προγράμματα</div>
+    <div class="nav-item" onclick="show('semplan','Εξαμηνιαίο Πρόγραμμα')">
+      <div class="nav-icon">🗓️</div>Εξαμηνιαίο Πρόγραμμα
+    </div>
+    <div class="nav-item" onclick="show('participants','Εκπαιδευόμενοι')">
+      <div class="nav-icon">👥</div>Εκπαιδευόμενοι
+    </div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Διαδικτυακή Πύλη</div>
+    <div class="nav-item" onclick="show('portal','Portal Υποβολής — UC-13_05')">
+      <div class="nav-icon">🌐</div>Portal Φορέα
+      <span class="nav-badge warn">2</span>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- ══════════════════ SCREEN: DASHBOARD ══════════════════ -->
+<div id="dash" class="screen active">
+  <div class="page-hd">
+    <div><div class="page-title">Dashboard Πιστοποίησης</div><div class="page-sub">Τελευταία ενημέρωση: 20/03/2026 09:41</div></div>
+    <div class="btn-row">
+      <button class="btn btn-secondary btn-sm" onclick="show('portal','Portal Υποβολής')">🌐 Portal</button>
+      <button class="btn btn-primary btn-sm" onclick="openModal('modal-new-issuance')">＋ Νέος Φάκελος</button>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#dbeafe">📁</div>
+      <div class="stat-val">14</div><div class="stat-lbl">Συνολικοί Φάκελοι</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#fce7f3">⏳</div>
+      <div class="stat-val">5</div><div class="stat-lbl">Σε Εκκρεμότητα</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#dcfce7">✅</div>
+      <div class="stat-val">7</div><div class="stat-lbl">Πιστοποιημένα</div>
+      <div class="stat-delta">+2 φέτος</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#ede9fe">📚</div>
+      <div class="stat-val">3</div><div class="stat-lbl">Ύλη DRAFT</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#fef3c7">⚠️</div>
+      <div class="stat-val">2</div><div class="stat-lbl">Χρειάζ. Εμπλουτισμό</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" style="background:#dcfce7">❓</div>
+      <div class="stat-val">248</div><div class="stat-lbl">Ερωτήσεις QBank</div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-hd"><div><div class="card-title">Εκκρεμότητες</div><div class="card-sub">Απαιτείται ενέργεια</div></div></div>
+      <div class="unit-list">
+        <div class="unit-item" onclick="show('detail','Φάκελος CERT-EDU-2025-0012')" style="cursor:pointer">
+          <div class="unit-num" style="background:#7c3aed">ΚΕΠ</div>
+          <div class="unit-info">
+            <div class="unit-title">CERT-EDU-2025-0012 — Ψηφιακός Μετ/σμός ΜΜΕ</div>
+            <div class="unit-meta"><span>Αναμένεται απόφαση ΚΕΠ</span><span class="pill" style="background:#fce7f3;color:#9d174d">KEP_DECISION_REC</span></div>
+          </div>
+        </div>
+        <div class="unit-item" onclick="show('syllabus','Διαχείριση Ύλης')" style="cursor:pointer">
+          <div class="unit-num" style="background:#f59e0b">ΥΛΗ</div>
+          <div class="unit-info">
+            <div class="unit-title">Ύλη v3 — Δημόσια Διοίκηση 2.0</div>
+            <div class="unit-meta"><span>Απαιτεί εμπλουτισμό CLOB</span><span class="pill" style="background:#fef9c3;color:#713f12">NEEDS_ENRICHMENT</span></div>
+          </div>
+        </div>
+        <div class="unit-item" onclick="show('portal','Portal Υποβολής')" style="cursor:pointer">
+          <div class="unit-num" style="background:#0369a1">POR</div>
+          <div class="unit-info">
+            <div class="unit-title">Νέα αίτηση portal — ΙΔΕΚΕ Κεντρ. Μακεδονίας</div>
+            <div class="unit-meta"><span>Αναμένεται έλεγχος πληρότητας</span><span class="pill">SUBMITTED</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-hd"><div class="card-title">Ροή Φακέλων (State Machine)</div></div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px">
+          <span class="status s-draft">DRAFT</span><span class="text3">3</span>
+          <div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:21%;background:#94a3b8"></div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px">
+          <span class="status s-submitted">SUBMITTED</span><span class="text3">2</span>
+          <div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:14%"></div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px">
+          <span class="status s-completeness">COMPLETENESS</span><span class="text3">1</span>
+          <div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:7%;background:#7c3aed"></div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px">
+          <span class="status s-review">UNDER_REVIEW</span><span class="text3">1</span>
+          <div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:7%;background:#0369a1"></div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px">
+          <span class="status s-kep">KEP_DECISION</span><span class="text3">1</span>
+          <div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:7%;background:#9d174d"></div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px">
+          <span class="status s-certified">CERTIFIED</span><span class="text3">7</span>
+          <div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:50%;background:#10b981"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ SCREEN: ISSUANCES LIST ══════════════════ -->
+<div id="issuances" class="screen">
+  <div class="page-hd">
+    <div><div class="page-title">Φάκελοι Πιστοποίησης</div><div class="page-sub">14 εγγραφές · Φίλτρα ενεργά</div></div>
+    <div class="btn-row">
+      <button class="btn btn-secondary btn-sm">⬇ Εξαγωγή</button>
+      <button class="btn btn-primary btn-sm" onclick="openModal('modal-new-issuance')">＋ Νέος Φάκελος</button>
+    </div>
+  </div>
+  <div class="card" style="padding:12px">
+    <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">
+      <input type="text" placeholder="Αναζήτηση φορέα / τίτλος..." style="padding:6px 10px;border:1px solid var(--border);border-radius:8px;font-family:var(--font);font-size:12px;flex:1;min-width:180px">
+      <select style="padding:6px 10px;border:1px solid var(--border);border-radius:8px;font-family:var(--font);font-size:12px">
+        <option>Όλες κατάστάσεις</option>
+        <option>DRAFT</option><option>SUBMITTED</option><option>CERTIFIED</option>
+      </select>
+      <select style="padding:6px 10px;border:1px solid var(--border);border-radius:8px;font-family:var(--font);font-size:12px">
+        <option>Όλες πηγές</option>
+        <option>INTERNAL</option><option>PORTAL</option>
+      </select>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th>Κωδ. Φακέλου</th><th>Φορέας</th><th>Πρόγραμμα</th><th>Κατάσταση</th>
+          <th>Πηγή</th><th>DF Έκδοση</th><th>Ημ/νία</th><th style="text-align:right">Ενέργειες</th>
+        </tr></thead>
+        <tbody>
+          <tr onclick="show('detail','Φάκελος CERT-EDU-2025-0012')">
+            <td class="text-mono">CERT-EDU-2025-0012</td>
+            <td>ΙΔΕΚΕ Αθηνών</td>
+            <td>Ψηφιακός Μετ/σμός ΜΜΕ</td>
+            <td><span class="status s-kep">KEP_DECISION_REC</span></td>
+            <td><span class="pill">INTERNAL</span></td>
+            <td><span class="status s-locked">v2 🔒</span></td>
+            <td class="small">15/03/2026</td>
+            <td><div class="tbl-actions">
+              <button class="btn btn-sm btn-primary" onclick="event.stopPropagation();show('detail','Φάκελος')">Άνοιγμα</button>
+            </div></td>
+          </tr>
+          <tr onclick="show('detail','Φάκελος CERT-EDU-2025-0011')">
+            <td class="text-mono">CERT-EDU-2025-0011</td>
+            <td>ΙΔΕΚΕ Θεσσαλονίκης</td>
+            <td>Διοικητικά Στελέχη — Επικοινωνία</td>
+            <td><span class="status s-completeness">COMPLETENESS_CHECK</span></td>
+            <td><span class="pill" style="background:#dcfce7;color:#166534">PORTAL</span></td>
+            <td><span class="status s-draft">v1 DRAFT</span></td>
+            <td class="small">10/03/2026</td>
+            <td><div class="tbl-actions">
+              <button class="btn btn-sm btn-warn" onclick="event.stopPropagation();openModal('modal-completeness')">Έλεγχος</button>
+            </div></td>
+          </tr>
+          <tr>
+            <td class="text-mono">CERT-EDU-2025-0010</td>
+            <td>ΕΚΠΑ / ΕΛΚΕ</td>
+            <td>Ανθρώπινο Δυναμικό — Ν.4940</td>
+            <td><span class="status s-certified">CERTIFIED</span></td>
+            <td><span class="pill">INTERNAL</span></td>
+            <td><span class="status s-locked">v3 🔒</span></td>
+            <td class="small">01/02/2026</td>
+            <td><div class="tbl-actions">
+              <button class="btn btn-sm btn-secondary">Προβολή</button>
+            </div></td>
+          </tr>
+          <tr>
+            <td class="text-mono">CERT-EDU-2025-0009</td>
+            <td>ΕΑΠ</td>
+            <td>Δημόσια Διοίκηση 2.0</td>
+            <td><span class="status s-review">UNDER_REVIEW</span></td>
+            <td><span class="pill">INTERNAL</span></td>
+            <td><span class="status s-locked">v2 🔒</span></td>
+            <td class="small">28/01/2026</td>
+            <td><div class="tbl-actions">
+              <button class="btn btn-sm btn-secondary" onclick="show('kep','Συνεδρίαση ΚΕΠ')">ΚΕΠ</button>
+            </div></td>
+          </tr>
+          <tr>
+            <td class="text-mono">CERT-EDU-2025-0008</td>
+            <td>ΕΕΔΕ</td>
+            <td>Οικονομική Διαχείριση</td>
+            <td><span class="status s-incomplete">INCOMPLETE</span></td>
+            <td><span class="pill" style="background:#fef9c3;color:#713f12">MIGRATION</span></td>
+            <td><span class="status s-migrated">v1 🔄 NEEDS_ENRICH</span></td>
+            <td class="small">20/01/2026</td>
+            <td><div class="tbl-actions">
+              <button class="btn btn-sm btn-warn" onclick="show('df_edit','Εμπλουτισμός Ύλης')">Εμπλουτισμός</button>
+            </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ SCREEN: ISSUANCE DETAIL ══════════════════ -->
+<div id="detail" class="screen">
+  <div class="page-hd">
+    <div>
+      <div class="page-title">CERT-EDU-2025-0012 <span class="status s-kep" style="font-size:12px;vertical-align:middle">KEP_DECISION_REC</span></div>
+      <div class="page-sub">Ψηφιακός Μετασχηματισμός ΜΜΕ · ΙΔΕΚΕ Αθηνών · Υποβλήθηκε 15/03/2026</div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-secondary btn-sm" onclick="show('syllabus','Ύλη Φακέλου')">📚 Ύλη</button>
+      <button class="btn btn-secondary btn-sm" onclick="show('kep','Συνεδρίαση ΚΕΠ')">⚖️ ΚΕΠ</button>
+      <button class="btn btn-success" onclick="openModal('modal-certify')">✅ Πιστοποίηση</button>
+      <button class="btn btn-danger btn-sm" onclick="openModal('modal-notcertify')">✗ Μη Πιστοποίηση</button>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <div class="card">
+        <div class="card-hd"><div class="card-title">Στοιχεία Φακέλου</div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:12px">
+          <div><div class="small">Φορέας</div><div style="font-weight:600">ΙΔΕΚΕ Αθηνών</div></div>
+          <div><div class="small">Τύπος Πιστοποίησης</div><div style="font-weight:600">EDU-STANDARD</div></div>
+          <div><div class="small">Ημ. Υποβολής</div><div style="font-weight:600">15/03/2026</div></div>
+          <div><div class="small">Πηγή</div><div style="font-weight:600"><span class="pill">INTERNAL</span></div></div>
+          <div><div class="small">Αρ. Πρωτοκόλλου</div><div class="text-mono">ΑΠ 4521/2026</div></div>
+          <div><div class="small">Κανονισμός Έκδοση</div><div class="text-mono">RULE-2025-v3</div></div>
+          <div style="grid-column:1/-1"><div class="small">Αποτέλεσμα ΚΕΠ</div>
+            <div style="display:flex;gap:8px;margin-top:4px">
+              <span class="status s-certified">APPROVE (4 υπέρ / 1 κατά)</span>
+              <span class="text-mono small">Πρακτικό ΚΕΠ 8/2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-hd"><div class="card-title">Σχεδιασμός Ύλης</div>
+          <button class="btn btn-sm btn-secondary" onclick="show('syllabus','Ύλη Φακέλου')">Προβολή →</button>
+        </div>
+        <div class="ver-chain" style="gap:20px">
+          <div class="ver-node">
+            <div class="ver-bubble retired">v1</div>
+            <div class="ver-lbl">RETIRED 🏛️</div>
+          </div>
+          <div class="ver-gap"></div>
+          <div class="ver-node">
+            <div class="ver-bubble locked">v2</div>
+            <div class="ver-lbl">APPROVED 🔒</div>
+          </div>
+          <div class="ver-gap"></div>
+          <div class="ver-node">
+            <div class="ver-bubble draft" onclick="show('df_edit','Επεξεργασία v3')">v3</div>
+            <div class="ver-lbl">DRAFT ✏️</div>
+          </div>
+        </div>
+        <div class="alert alert-info"><div class="alert-icon">ℹ️</div>
+          <div>Η έκδοση <strong>v2 (LOCKED)</strong> χρησιμοποιείται για την απόφαση πιστοποίησης. Η v3 είναι DRAFT και δεν επηρεάζει τον τρέχοντα φάκελο.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="max-height:520px;overflow-y:auto">
+      <div class="card-hd"><div class="card-title">Ιστορικό Ενεργειών</div></div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot tl-purple">ΚΕΠ</div>
+          <div class="tl-info">
+            <div class="tl-action">KEP_DECISION_REC — Απόφαση ΚΕΠ Καταχωρισμένη</div>
+            <div class="tl-meta">Μ. Αντωνίου · 18/03/2026 14:22</div>
+            <div class="tl-comment">Συνεδρίαση ΚΕΠ 8/2026 — Αποτέλεσμα: APPROVE (4–1). Πρωτόκολλο ΚΕΠ: 8/18-03-2026</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot tl-blue">ΑΞ</div>
+          <div class="tl-info">
+            <div class="tl-action">UNDER_REVIEW — Διαβίβαση προς ΚΕΠ</div>
+            <div class="tl-meta">Μ. Αντωνίου · 10/03/2026 11:05</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot tl-green">ΠΛ</div>
+          <div class="tl-info">
+            <div class="tl-action">COMPLETENESS_CHECK → Πλήρης Φάκελος</div>
+            <div class="tl-meta">Ν. Παπαδοπούλου · 08/03/2026 09:30</div>
+            <div class="tl-comment">Checklist: 11/11 στοιχεία πλήρη. DF v2 εγκεκριμένη (LOCKED).</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot tl-gold">ΥΠ</div>
+          <div class="tl-info">
+            <div class="tl-action">Υποβολή Συμπληρωματικών</div>
+            <div class="tl-meta">ΙΔΕΚΕ · 05/03/2026 16:44</div>
+            <div class="tl-comment">Επισυνάφθηκαν 3 έγγραφα διευκρίνισης. Πρωτόκολλο: ΑΠ 4380/2026</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot tl-gold">ΕΛ</div>
+          <div class="tl-info">
+            <div class="tl-action">INCOMPLETE — Ελλείψεις εντοπίστηκαν</div>
+            <div class="tl-meta">Ν. Παπαδοπούλου · 02/03/2026 10:12</div>
+            <div class="tl-comment">Λείπει: (1) πιστοποιητικό σπουδών εκπαιδευτή, (2) αναλυτικό ωρολόγιο πρόγραμμα</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot tl-blue">ΥΒ</div>
+          <div class="tl-info">
+            <div class="tl-action">SUBMITTED — Αρχική Υποβολή</div>
+            <div class="tl-meta">ΙΔΕΚΕ · 15/03/2026 · Πρωτ. ΑΠ 4521/2026</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot tl-gray">Δ</div>
+          <div class="tl-info">
+            <div class="tl-action">DRAFT — Δημιουργία Φακέλου</div>
+            <div class="tl-meta">Μ. Αντωνίου · 28/02/2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ SCREEN: SYLLABUS VERSIONING ══════════════════ -->
+<div id="syllabus" class="screen">
+  <div class="page-hd">
+    <div>
+      <div class="page-title">Ύλη Εκπαίδευσης — Syllabus Versioning</div>
+      <div class="page-sub">CERT-EDU-2025-0012 · Ψηφιακός Μετασχηματισμός ΜΜΕ · Design Folder DF-0042</div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-secondary btn-sm">📥 Εξαγωγή PDF</button>
+      <button class="btn btn-purple btn-sm" onclick="openModal('modal-copy-ver')">📋 Copy-Forward v3</button>
+      <button class="btn btn-primary btn-sm" onclick="show('df_edit','Επεξεργασία Ύλης v3')">✏️ Επεξεργασία DRAFT</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info"><div class="alert-icon">🔒</div>
+    <div><strong>Αμετάβλητα Snapshots (Immutable):</strong> Οι εκδόσεις APPROVED είναι κλειδωμένες (LOCKED_FLG=Y). Δεν επιτρέπεται επεξεργασία ενοτήτων/χρονοπρογράμματος. Για αλλαγές: δημιουργήστε νέα έκδοση μέσω <em>Copy-Forward</em>.</div>
+  </div>
+
+  <!-- Version Chain -->
+  <div class="card">
+    <div class="card-hd"><div class="card-title">Αλυσίδα Εκδόσεων (Version Chain)</div><div class="card-sub">SOURCE_VER_ID → ιχνηλασιμότητα copy-forward</div></div>
+    <div class="ver-chain" style="gap:28px;padding:8px 0">
+      <div class="ver-node" onclick="switchVer(1)">
+        <div class="ver-bubble migrated" id="vb1">v1 🔄</div>
+        <div class="ver-lbl">MIGRATED</div>
+        <div style="font-size:9px;color:var(--text3);margin-top:2px">NEEDS_ENRICHMENT</div>
+      </div>
+      <div style="color:var(--text3);font-size:13px;align-self:center;margin-top:-12px">→</div>
+      <div class="ver-node" onclick="switchVer(2)">
+        <div class="ver-bubble locked" id="vb2">v2 🔒</div>
+        <div class="ver-lbl">APPROVED</div>
+        <div style="font-size:9px;color:var(--green);margin-top:2px">LOCKED · Ενεργή</div>
+      </div>
+      <div style="color:var(--text3);font-size:13px;align-self:center;margin-top:-12px">→</div>
+      <div class="ver-node" onclick="switchVer(3)">
+        <div class="ver-bubble draft" id="vb3">v3 ✏️</div>
+        <div class="ver-lbl">DRAFT</div>
+        <div style="font-size:9px;color:var(--accent);margin-top:2px">Επεξεργάσιμη</div>
+      </div>
+    </div>
+
+    <!-- Version detail panel -->
+    <div id="ver-panel" style="margin-top:12px">
+      <!-- filled by JS -->
+    </div>
+  </div>
+
+  <!-- Units of active version -->
+  <div class="card" id="units-card">
+    <div class="card-hd">
+      <div><div class="card-title">Ενότητες Ύλης — v2 APPROVED 🔒</div><div class="card-sub">5 ενότητες · 75 ώρες · LOCKED (read-only)</div></div>
+    </div>
+    <div class="unit-list">
+      <div class="unit-item">
+        <div class="unit-num">01</div>
+        <div class="unit-info">
+          <div class="unit-title">Βασικές Αρχές Ψηφιακής Διακυβέρνησης</div>
+          <div class="unit-meta"><span>20 ώρες</span><span class="lock-icon">🔒</span><span class="pill pill-green">Ν.4940</span></div>
+          <div class="unit-clob">Μαθησιακά αποτελέσματα: Ο εκπαιδευόμενος θα είναι σε θέση να περιγράψει τις βασικές αρχές ψηφιακής διακυβέρνησης και να εφαρμόζει τα εργαλεία e-gov σε διοικητικές διαδικασίες.</div>
+        </div>
+      </div>
+      <div class="unit-item">
+        <div class="unit-num">02</div>
+        <div class="unit-info">
+          <div class="unit-title">Διαχείριση Δεδομένων & GDPR</div>
+          <div class="unit-meta"><span>15 ώρες</span><span class="lock-icon">🔒</span><span class="pill pill-green">Ν.4624</span></div>
+          <div class="unit-clob">Μαθησιακά αποτελέσματα: Εφαρμογή κανόνων GDPR, διαχείριση αρχείων δεδομένων, αξιολόγηση κινδύνων προστασίας δεδομένων στο δημόσιο τομέα.</div>
+        </div>
+      </div>
+      <div class="unit-item">
+        <div class="unit-num">03</div>
+        <div class="unit-info">
+          <div class="unit-title">Ψηφιακές Δεξιότητες Δημοσίων Υπαλλήλων</div>
+          <div class="unit-meta"><span>20 ώρες</span><span class="lock-icon">🔒</span><span class="pill">DigComp 2.2</span></div>
+          <div class="unit-clob">Αξιοποίηση ψηφιακών εργαλείων για την αύξηση παραγωγικότητας, συνεργατικές πλατφόρμες, ψηφιακή ασφάλεια και κυβερνοαπειλές.</div>
+        </div>
+      </div>
+      <div class="unit-item">
+        <div class="unit-num">04</div>
+        <div class="unit-info">
+          <div class="unit-title">Τεχνητή Νοημοσύνη στη Δημόσια Διοίκηση</div>
+          <div class="unit-meta"><span>12 ώρες</span><span class="lock-icon">🔒</span></div>
+          <div class="unit-clob">Εισαγωγή στα LLMs, εφαρμογές AI στη διοίκηση, αυτοματισμός διαδικασιών, θεσμικό πλαίσιο AI Act.</div>
+        </div>
+      </div>
+      <div class="unit-item">
+        <div class="unit-num">05</div>
+        <div class="unit-info">
+          <div class="unit-title">Αξιολόγηση & Ψηφιακή Μάθηση (e-Learning)</div>
+          <div class="unit-meta"><span>8 ώρες</span><span class="lock-icon">🔒</span></div>
+          <div class="unit-clob">Σχεδιασμός ψηφιακών αξιολογήσεων, χρήση LMS, δημιουργία ψηφιακού εκπαιδευτικού υλικού.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-hd"><div class="card-title">Χαρτογράφηση Ν.4940/2022</div></div>
+      <div style="font-size:12px;display:flex;flex-direction:column;gap:6px">
+        <div class="flex"><span class="pill">Module: ΨΔ-01</span><span>Ψηφιακός Μετασχηματισμός</span></div>
+        <div class="flex"><span class="pill">Module: ΚΔ-03</span><span>Δεξιότητες ΤΠΕ</span></div>
+        <div class="flex"><span class="pill pill-green">Skill: S-DIGOV</span><span>Ψηφιακή Διακυβέρνηση</span></div>
+        <div class="flex"><span class="pill pill-green">Skill: S-GDPR</span><span>Προστασία Δεδομένων</span></div>
+        <div class="flex"><span class="pill pill-green">Skill: S-AI-PUB</span><span>AI στη Δημόσια Διοίκηση</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-hd"><div class="card-title">Πολιτική Αξιολόγησης</div></div>
+      <div style="font-size:12px;display:flex;flex-direction:column;gap:8px">
+        <div class="flex"><span class="small">Ελάχ. Ερωτήσεις QBank:</span><span style="font-weight:700;color:var(--green)">≥ 30 (ΦΕΚ 1657/2020) ✓</span></div>
+        <div class="flex"><span class="small">Βάση Επιτυχίας:</span><span style="font-weight:700">≥ 50%</span></div>
+        <div class="flex"><span class="small">Μέθοδος:</span><span>MCQ + Ανοιχτές Ερωτήσεις</span></div>
+        <div class="flex"><span class="small">Min / Max Βαθμολογία:</span><span>0 — 100</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ SCREEN: DF EDIT (DRAFT) ══════════════════ -->
+<div id="df_edit" class="screen">
+  <div class="page-hd">
+    <div>
+      <div class="page-title">Επεξεργασία Ύλης <span class="status s-draft">v3 DRAFT</span></div>
+      <div class="page-sub">DF-0042 · SOURCE_VER_ID = v2 · Δημιουργήθηκε 19/03/2026</div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-secondary btn-sm">💾 Αποθήκευση</button>
+      <button class="btn btn-warn btn-sm" onclick="openModal('modal-submit-df')">📤 Υποβολή για Έγκριση</button>
+    </div>
+  </div>
+
+  <div class="alert alert-warn"><div class="alert-icon">⚠️</div>
+    <div>Αυτή η έκδοση δημιουργήθηκε με <strong>Copy-Forward από v2</strong>. Ελέγξτε και εμπλουτίστε τα CLOB πεδία πριν υποβληθεί. <span style="color:var(--red)">2 ενότητες χρειάζονται εμπλουτισμό.</span></div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" onclick="dfTab(this,'df-tab-general')">Γενικά</div>
+    <div class="tab" onclick="dfTab(this,'df-tab-units')">Ενότητες</div>
+    <div class="tab" onclick="dfTab(this,'df-tab-schedule')">Ωρολόγιο</div>
+    <div class="tab" onclick="dfTab(this,'df-tab-assessment')">Αξιολόγηση</div>
+    <div class="tab" onclick="dfTab(this,'df-tab-compliance')">Completeness</div>
+  </div>
+
+  <div id="df-tab-general" class="card">
+    <div class="form-grid">
+      <div class="fld form-full"><label class="required">Τίτλος Προγράμματος</label>
+        <input value="Ψηφιακός Μετασχηματισμός ΜΜΕ — Έκδοση 2026"></div>
+      <div class="fld"><label class="required">Τρόπος Υλοποίησης</label>
+        <select><option>Δια ζώσης</option><option selected>Υβριδικό</option><option>e-Learning</option></select></div>
+      <div class="fld"><label class="required">Συνολικές Ώρες</label><input type="number" value="75"></div>
+      <div class="fld form-full"><label>Οργανωτική Μονάδα</label><input value="ΙΔΕΚΕ Αθηνών — Τμήμα Ψηφιακών Δεξιοτήτων"></div>
+      <div class="fld form-full"><label class="required">Σκοπός Προγράμματος</label>
+        <textarea rows="3">Το πρόγραμμα αποσκοπεί στην ανάπτυξη ψηφιακών ικανοτήτων δημοσίων υπαλλήλων που συνδέονται με τον ψηφιακό μετασχηματισμό της δημόσιας διοίκησης σύμφωνα με το Ν.4940/2022.</textarea></div>
+      <div class="fld form-full"><label class="required">Τεκμηρίωση Ανάγκης (JUSTIF)</label>
+        <textarea rows="3" style="border-color:var(--gold)">PLACEHOLDER — Απαιτείται συμπλήρωση από αρμόδιο: τεκμηρίωση εκπαιδευτικής ανάγκης και σύνδεση με στρατηγικό σχεδιασμό ΕΚΔΔΑ.</textarea>
+        <div class="fld-note" style="color:var(--gold)">⚠️ NEEDS_ENRICHMENT — προερχόμενο από migration</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="df-tab-units" class="card" style="display:none">
+    <div class="card-hd">
+      <div class="card-title">Ενότητες Ύλης (CERT_DF_UNIT)</div>
+      <button class="btn btn-primary btn-sm">＋ Ενότητα</button>
+    </div>
+    <div class="unit-list">
+      <div class="unit-item">
+        <div class="unit-num">01</div>
+        <div class="unit-info" style="flex:1">
+          <input value="Βασικές Αρχές Ψηφιακής Διακυβέρνησης" style="width:100%;padding:4px 8px;border:1px solid var(--border);border-radius:6px;font-family:var(--font);font-size:12.5px;font-weight:600">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px">
+            <div class="fld"><label>Ώρες</label><input type="number" value="20"></div>
+            <div class="fld"><label>Σειρά</label><input type="number" value="1"></div>
+          </div>
+          <div class="fld" style="margin-top:6px"><label class="required">Μαθησιακά Αποτελέσματα (OBJECTIVES_TEXT)</label>
+            <textarea rows="2">Ο εκπαιδευόμενος θα είναι σε θέση να περιγράψει τις βασικές αρχές ψηφιακής διακυβέρνησης...</textarea></div>
+          <div class="fld" style="margin-top:6px"><label>Θεματολογία (CONTENT_TEXT)</label>
+            <textarea rows="2" style="border-color:var(--gold)">PLACEHOLDER — Απαιτείται αναλυτική θεματολογία ενότητας.</textarea></div>
+        </div>
+      </div>
+      <div class="unit-item">
+        <div class="unit-num">02</div>
+        <div class="unit-info" style="flex:1">
+          <input value="Διαχείριση Δεδομένων & GDPR" style="width:100%;padding:4px 8px;border:1px solid var(--border);border-radius:6px;font-family:var(--font);font-size:12.5px;font-weight:600">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px">
+            <div class="fld"><label>Ώρες</label><input type="number" value="15"></div>
+            <div class="fld"><label>Σειρά</label><input type="number" value="2"></div>
+          </div>
+          <div class="fld" style="margin-top:6px"><label class="required">Μαθησιακά Αποτελέσματα</label>
+            <textarea rows="2">Εφαρμογή κανόνων GDPR, διαχείριση αρχείων δεδομένων...</textarea></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="df-tab-schedule" class="card" style="display:none">
+    <div class="card-hd"><div class="card-title">Ωρολόγιο Πρόγραμμα (CERT_DF_SCHEDULE)</div></div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Ημέρα</th><th>Ωρα</th><th>Ενότητα</th><th>Τρόπος</th><th>Ώρες</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>09:00–13:00</td><td>Ψηφιακή Διακυβέρνηση</td><td>Δια ζώσης</td><td>4</td></tr>
+          <tr><td>1</td><td>14:00–17:00</td><td>Ψηφιακή Διακυβέρνηση</td><td>Δια ζώσης</td><td>3</td></tr>
+          <tr><td>2</td><td>09:00–13:00</td><td>GDPR & Δεδομένα</td><td>Δια ζώσης</td><td>4</td></tr>
+          <tr><td>2</td><td>14:00–17:00</td><td>GDPR — Ασκήσεις</td><td>e-Learning</td><td>3</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="df-tab-assessment" class="card" style="display:none">
+    <div class="form-grid">
+      <div class="fld"><label class="required">Ελάχ. Ερωτήσεις QBank</label><input type="number" value="35" min="30"></div>
+      <div class="fld"><label class="required">Βάση Επιτυχίας (%)</label><input type="number" value="50" min="0" max="100"></div>
+      <div class="fld form-full"><label>Μέθοδος Αξιολόγησης</label><textarea rows="2">Πολλαπλής επιλογής (MCQ) + ανοιχτές ερωτήσεις εφαρμογής. Η τελική βαθμολογία προκύπτει από σταθμισμένο μέσο όρο MCQ (70%) και ανοιχτών (30%).</textarea></div>
+    </div>
+  </div>
+
+  <div id="df-tab-compliance" class="card" style="display:none">
+    <div class="card-hd"><div class="card-title">Completeness Check — FN_VALIDATE_DF_COMPLETENESS</div></div>
+    <div style="display:flex;flex-direction:column;gap:8px;font-size:12px">
+      <div class="flex"><span style="color:var(--green)">✓</span><span>S1: Τεκμηρίωση ανάγκης (JUSTIF_DESC)</span><span class="right small">προσοχή: PLACEHOLDER</span></div>
+      <div class="flex"><span style="color:var(--green)">✓</span><span>S2: Σκοπός προγράμματος (PURPOSE_TEXT)</span></div>
+      <div class="flex"><span style="color:var(--green)">✓</span><span>S3: Ενότητες με OBJECTIVES_TEXT (5/5)</span></div>
+      <div class="flex"><span style="color:var(--green)">✓</span><span>S4: Ωρολόγιο πρόγραμμα</span></div>
+      <div class="flex"><span style="color:var(--green)">✓</span><span>S5: Κριτήρια επιλογής εκπαιδευομένων</span></div>
+      <div class="flex"><span style="color:var(--green)">✓</span><span>S6: Πολιτική εκπαιδευτών</span></div>
+      <div class="flex"><span style="color:var(--green)">✓</span><span>S7: Πολιτική αξιολόγησης (MIN_QST ≥ 30)</span></div>
+      <div class="flex"><span style="color:var(--green)">✓</span><span>S8: Αξιολόγηση προγράμματος</span></div>
+      <div class="flex"><span style="color:var(--green)">✓</span><span>S9: Αποτελεσματικότητα</span></div>
+      <div class="divider" style="margin:4px 0"></div>
+      <div class="flex"><span style="color:var(--green)">✓</span><span>Ν.4940/2022: Module mapping (2 modules)</span></div>
+      <div class="flex"><span style="color:var(--green)">✓</span><span>Ν.4940/2022: Skill mapping (5 skills)</span></div>
+      <div class="flex"><span style="color:var(--green)">✓</span><span>Ώρες: SUM(units)=75 = TOTAL_HOURS=75</span></div>
+      <div class="flex"><span style="color:var(--gold)">⚠️</span><span>NEEDS_ENRICHMENT: 2 ενότητες με PLACEHOLDER CLOB</span></div>
+    </div>
+    <div class="alert alert-warn" style="margin-top:12px"><div class="alert-icon">⚠️</div><div>Η υποβολή επιτρέπεται αλλά θα καταγραφεί <strong>NEEDS_ENRICHMENT=Y</strong>. Συνιστάται εμπλουτισμός CLOBs πριν τη χρήση σε απόφαση πιστοποίησης.</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════ SCREEN: QBANK ══════════════════ -->
+<div id="qbank" class="screen">
+  <div class="page-hd">
+    <div><div class="page-title">Τράπεζα Θεμάτων — QBank</div><div class="page-sub">CERT-EDU-2025-0012 · 248 ενεργές ερωτήσεις</div></div>
+    <div class="btn-row">
+      <button class="btn btn-secondary btn-sm" onclick="show('qimport','Μαζική Εισαγωγή')">📥 Bulk Import</button>
+      <button class="btn btn-primary btn-sm" onclick="openModal('modal-new-qbank')">＋ Νέα Έκδοση</button>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-icon" style="background:#dcfce7">✅</div><div class="stat-val">248</div><div class="stat-lbl">Ενεργές Ερωτήσεις</div></div>
+    <div class="stat-card"><div class="stat-icon" style="background:#dbeafe">🗂️</div><div class="stat-val">5</div><div class="stat-lbl">Ενότητες</div></div>
+    <div class="stat-card"><div class="stat-icon" style="background:#fef3c7">📊</div><div class="stat-val">67%</div><div class="stat-lbl">Μέτριας Δυσκολίας</div></div>
+    <div class="stat-card"><div class="stat-icon" style="background:#dcfce7">🔐</div><div class="stat-val">SHA256</div><div class="stat-lbl">Hash ✓ Verified</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-hd"><div class="card-title">Εκδόσεις Τράπεζας Θεμάτων</div></div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Έκδοση</th><th>Τίτλος</th><th>Κατάσταση</th><th>Plan Item</th><th>Ερωτήσεις</th><th>Hash</th><th>Ημ/νία</th><th style="text-align:right">Ενέργειες</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="text-mono">BV-0042-v2</td>
+            <td>QBank Ψηφιακός Μετ/σμός 2026</td>
+            <td><span class="status s-published">PUBLISHED 🔐</span></td>
+            <td><span class="text-mono small">PI-2026-H1-001</span></td>
+            <td>248 ✓≥30</td>
+            <td><span class="text-mono small">SHA256:a3f2c1…</span></td>
+            <td class="small">15/03/2026</td>
+            <td><div class="tbl-actions">
+              <button class="btn btn-sm btn-secondary">Προβολή</button>
+              <button class="btn btn-sm btn-purple" onclick="openModal('modal-copy-qbank')">Copy</button>
+            </div></td>
+          </tr>
+          <tr>
+            <td class="text-mono">BV-0042-v1</td>
+            <td>QBank Ψηφιακός Μετ/σμός 2025</td>
+            <td><span class="status s-withdrawn">RETIRED</span></td>
+            <td>—</td>
+            <td>185</td>
+            <td><span class="text-mono small">SHA256:b9e1a0…</span></td>
+            <td class="small">01/09/2025</td>
+            <td><div class="tbl-actions"><button class="btn btn-sm btn-ghost">Ιστορικό</button></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-hd"><div class="card-title">Ερωτήσεις — BV-0042-v2</div>
+      <div class="btn-row">
+        <select class="btn btn-secondary btn-sm" style="padding:4px 8px">
+          <option>Όλες ενότητες</option><option>Ψηφιακή Διακυβέρνηση</option><option>GDPR</option>
+        </select>
+        <button class="btn btn-primary btn-sm" onclick="openModal('modal-add-qst')">＋ Ερώτηση</button>
+      </div>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Κείμενο Ερώτησης</th><th>Τύπος</th><th>Δυσκολία</th><th>Ενότητα</th><th>Κατάσταση</th></tr></thead>
+        <tbody>
+          <tr><td class="text-mono small">Q-001</td><td style="max-width:280px">Ποια αρχή της GDPR αφορά τον περιορισμό του σκοπού επεξεργασίας;</td><td><span class="pill">MC</span></td><td><span class="pill pill-green">MEDIUM</span></td><td>GDPR</td><td><span class="status s-approved">ACTIVE</span></td></tr>
+          <tr><td class="text-mono small">Q-002</td><td>Τι ορίζει ο Ν.4940/2022 ως «Σχέδιο Ψηφιακού Μετασχηματισμού»;</td><td><span class="pill">SC</span></td><td><span class="pill pill-gold">HARD</span></td><td>Ψηφ. Διακ/νηση</td><td><span class="status s-approved">ACTIVE</span></td></tr>
+          <tr><td class="text-mono small">Q-003</td><td>Η χρήση LLM μοντέλων στη δημόσια διοίκηση υπόκειται στον AI Act.</td><td><span class="pill" style="background:#fce7f3;color:#9d174d">TF</span></td><td><span class="pill">EASY</span></td><td>AI Δημ. Διοίκ.</td><td><span class="status s-approved">ACTIVE</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ SCREEN: BULK IMPORT ══════════════════ -->
+<div id="qimport" class="screen">
+  <div class="page-hd">
+    <div><div class="page-title">Μαζική Εισαγωγή Ερωτήσεων</div><div class="page-sub">PR_BULK_IMPORT_QUESTIONS · QBank BV-0042-v3 DRAFT</div></div>
+    <div class="btn-row">
+      <button class="btn btn-secondary btn-sm" onclick="show('qbank','QBank')">← Πίσω</button>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <div class="card">
+        <div class="card-hd"><div class="card-title">Μεταφόρτωση JSON / Πρότυπο</div></div>
+        <div class="import-zone" onclick="openModal('modal-import-preview')">
+          <div class="import-zone-icon">📥</div>
+          <div class="import-zone-title">Σύρτε αρχείο JSON ή κάντε κλικ</div>
+          <div class="import-zone-sub">Μορφότυπο: [{question_type, stem, difficulty, choices:[{label,text,is_correct}]}]</div>
+        </div>
+        <div style="margin-top:12px;display:flex;gap:8px">
+          <button class="btn btn-secondary btn-sm">⬇ Κατέβασμα Προτύπου JSON</button>
+          <button class="btn btn-secondary btn-sm">⬇ Πρότυπο Excel</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-hd"><div class="card-title">Κανόνες Επικύρωσης</div></div>
+        <div style="font-size:11.5px;display:flex;flex-direction:column;gap:6px;color:var(--text2)">
+          <div>✓ Υποχρεωτικά πεδία: <code>question_type</code>, <code>stem</code></div>
+          <div>✓ Έγκυροι τύποι: MC, SC, TF, OPEN, STUDY</div>
+          <div>✓ MC/SC/TF: υποχρεωτικά ≥2 choices με ≥1 is_correct=Y</div>
+          <div>✓ Αυτόματη δημιουργία unit αν unit_cd δεν υπάρχει</div>
+          <div>✓ Non-fatal errors: σφάλματα per-row καταγράφονται, δεν σταματούν την εισαγωγή</div>
+          <div>⚠️ Bank πρέπει να είναι DRAFT ή RETURNED</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-hd"><div class="card-title">Αποτελέσματα Τελευταίας Εισαγωγής</div></div>
+      <div class="alert alert-success"><div class="alert-icon">✅</div><div><strong>Εισαγωγή Επιτυχής</strong> — 19/03/2026 16:30</div></div>
+      <div class="stats-grid" style="grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+        <div class="stat-card" style="padding:12px"><div class="stat-val" style="color:var(--green)">63</div><div class="stat-lbl">Επιτυχείς</div></div>
+        <div class="stat-card" style="padding:12px"><div class="stat-val" style="color:var(--red)">3</div><div class="stat-lbl">Σφάλματα</div></div>
+      </div>
+      <div class="card-title" style="font-size:12px;margin-bottom:8px">Σφάλματα (Import Log)</div>
+      <div style="background:#fff8f8;border:1px solid #fecaca;border-radius:8px;padding:10px;font-family:var(--mono);font-size:11px;color:#991b1b">
+        {"row":14,"error":"MC requires choices array","stem_excerpt":"Ποια η αρμοδιότητα..."}<br>
+        {"row":27,"error":"No correct answer marked","stem_excerpt":"Σύμφωνα με τον AI Act..."}<br>
+        {"row":41,"error":"Missing question_type","stem_excerpt":""}
+      </div>
+      <div style="margin-top:12px">
+        <div class="card-title" style="font-size:12px;margin-bottom:8px">Κατανομή ανά Τύπο</div>
+        <div style="font-size:12px;display:flex;flex-direction:column;gap:5px">
+          <div class="flex"><span>MC (Πολλαπλής)</span><div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:68%"></div></div><span>43</span></div>
+          <div class="flex"><span>SC (Μοναδική)</span><div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:22%;background:#8b5cf6"></div></div><span>14</span></div>
+          <div class="flex"><span>TF (Σωστό/Λάθος)</span><div class="progress-bar" style="flex:1"><div class="progress-fill" style="width:10%;background:#f59e0b"></div></div><span>6</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ SCREEN: KEP SESSION ══════════════════ -->
+<div id="kep" class="screen">
+  <div class="page-hd">
+    <div><div class="page-title">Συνεδρίαση ΚΕΠ — SESSION-2026-008</div><div class="page-sub">CERT-EDU-2025-0009 · ΕΑΠ · Δημόσια Διοίκηση 2.0 · 18/03/2026</div></div>
+    <div class="btn-row">
+      <button class="btn btn-success" onclick="openModal('modal-conclude')">⚖️ Ολοκλήρωση &amp; Bridge</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info"><div class="alert-icon">ℹ️</div>
+    <div>Η ψηφοφορία καταγράφεται στο ΟΠΣ. Η αποδοχή ή απόρριψη ενεργοποιεί αυτόματα τη μετάβαση <strong>CERT_ISSUANCE → KEP_DECISION_REC</strong> (PR_CONCLUDE_SESSION, GAP-P01 fix).</div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-hd"><div class="card-title">Καταγραφή Ψηφοφορίας</div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:12px">
+        <div style="display:flex;gap:8px;align-items:center;padding:8px;background:var(--bg);border-radius:8px">
+          <div style="flex:1"><div style="font-weight:600">Α. Γεωργίου</div><div class="small">Πρόεδρος ΚΕΠ</div></div>
+          <div class="vote-grid" style="grid-template-columns:repeat(4,1fr);gap:4px">
+            <div class="vote-card selected-for" onclick="castVote(this,'FOR')"><div class="vote-emoji">✅</div><div class="vote-label">ΥΠΕΡ</div></div>
+            <div class="vote-card" onclick="castVote(this,'AGAINST')"><div class="vote-emoji">❌</div><div class="vote-label">ΚΑΤΑ</div></div>
+            <div class="vote-card" onclick="castVote(this,'ABSTAIN')"><div class="vote-emoji">⬜</div><div class="vote-label">ΑΠΟΧΗ</div></div>
+            <div class="vote-card" onclick="castVote(this,'ABSENT')"><div class="vote-emoji">➖</div><div class="vote-label">ΑΠΩΝ</div></div>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;padding:8px;background:var(--bg);border-radius:8px">
+          <div style="flex:1"><div style="font-weight:600">Μ. Θεοδωρίδης</div><div class="small">Μέλος ΚΕΠ</div></div>
+          <div class="vote-grid" style="grid-template-columns:repeat(4,1fr);gap:4px">
+            <div class="vote-card selected-for" onclick="castVote(this,'FOR')"><div class="vote-emoji">✅</div><div class="vote-label">ΥΠΕΡ</div></div>
+            <div class="vote-card" onclick="castVote(this,'AGAINST')"><div class="vote-emoji">❌</div><div class="vote-label">ΚΑΤΑ</div></div>
+            <div class="vote-card" onclick="castVote(this,'ABSTAIN')"><div class="vote-emoji">⬜</div><div class="vote-label">ΑΠΟΧΗ</div></div>
+            <div class="vote-card" onclick="castVote(this,'ABSENT')"><div class="vote-emoji">➖</div><div class="vote-label">ΑΠΩΝ</div></div>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;padding:8px;background:var(--bg);border-radius:8px">
+          <div style="flex:1"><div style="font-weight:600">Κ. Παναγιώτου</div><div class="small">Μέλος ΚΕΠ</div></div>
+          <div class="vote-grid" style="grid-template-columns:repeat(4,1fr);gap:4px">
+            <div class="vote-card" onclick="castVote(this,'FOR')"><div class="vote-emoji">✅</div><div class="vote-label">ΥΠΕΡ</div></div>
+            <div class="vote-card selected-against" onclick="castVote(this,'AGAINST')"><div class="vote-emoji">❌</div><div class="vote-label">ΚΑΤΑ</div></div>
+            <div class="vote-card" onclick="castVote(this,'ABSTAIN')"><div class="vote-emoji">⬜</div><div class="vote-label">ΑΠΟΧΗ</div></div>
+            <div class="vote-card" onclick="castVote(this,'ABSENT')"><div class="vote-emoji">➖</div><div class="vote-label">ΑΠΩΝ</div></div>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;padding:8px;background:var(--bg);border-radius:8px">
+          <div style="flex:1"><div style="font-weight:600">Ε. Νικολάου</div><div class="small">Μέλος ΚΕΠ</div></div>
+          <div class="vote-grid" style="grid-template-columns:repeat(4,1fr);gap:4px">
+            <div class="vote-card selected-for" onclick="castVote(this,'FOR')"><div class="vote-emoji">✅</div><div class="vote-label">ΥΠΕΡ</div></div>
+            <div class="vote-card" onclick="castVote(this,'AGAINST')"><div class="vote-emoji">❌</div><div class="vote-label">ΚΑΤΑ</div></div>
+            <div class="vote-card" onclick="castVote(this,'ABSTAIN')"><div class="vote-emoji">⬜</div><div class="vote-label">ΑΠΟΧΗ</div></div>
+            <div class="vote-card" onclick="castVote(this,'ABSENT')"><div class="vote-emoji">➖</div><div class="vote-label">ΑΠΩΝ</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-hd"><div class="card-title">Συνοπτικό Αποτέλεσμα</div></div>
+        <div id="vote-result" style="text-align:center;padding:16px">
+          <div style="font-size:36px;margin-bottom:8px">✅</div>
+          <div style="font-size:20px;font-weight:700;color:var(--green)">APPROVE</div>
+          <div style="font-size:12px;color:var(--text3);margin-top:4px">3 ΥΠΕΡ · 1 ΚΑΤΑ · 0 ΑΠΟΧΗ</div>
+          <div class="divider"></div>
+          <div class="alert alert-success" style="text-align:left"><div class="alert-icon">→</div>
+            <div>Κατά την ολοκλήρωση: <code>CERT_ISSUANCE.CASE_STATUS = 'KEP_DECISION_REC'</code> (PR_CONCLUDE_SESSION)</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-hd"><div class="card-title">Πρακτικό Συνεδρίασης</div></div>
+        <div class="form-grid" style="grid-template-columns:1fr 1fr;gap:10px">
+          <div class="fld"><label class="required">Αρ. Πρακτικού</label><input value="8/2026"></div>
+          <div class="fld"><label class="required">Ημερομηνία</label><input type="date" value="2026-03-18"></div>
+          <div class="fld form-full"><label>Κείμενο Πρακτικού</label>
+            <textarea rows="3">Η ΚΕΠ εξέτασε τον φάκελο πιστοποίησης ΕΑΠ — Δημόσια Διοίκηση 2.0 και αποφάσισε την πιστοποίηση με ψήφους 3 υπέρ, 1 κατά.</textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ SCREEN: SEMESTER PLAN ══════════════════ -->
+<div id="semplan" class="screen">
+  <div class="page-hd">
+    <div><div class="page-title">Εξαμηνιαίο Πρόγραμμα Φορέων</div><div class="page-sub">UC-13_06 · Β' Εξάμηνο 2026</div></div>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" onclick="openModal('modal-new-semplan')">＋ Νέο Πρόγραμμα</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>ID</th><th>Φορέας</th><th>Εξάμηνο</th><th>Κατάσταση</th><th>Αριθμ. Items</th><th>Ημ. Υποβολής</th><th style="text-align:right">Ενέργειες</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="text-mono">SP-2026-H1-001</td>
+            <td>ΙΔΕΚΕ Αθηνών</td>
+            <td>Α' 2026</td>
+            <td><span class="status s-approved">APPROVED</span></td>
+            <td>3 προγράμματα</td>
+            <td class="small">15/01/2026</td>
+            <td><div class="tbl-actions"><button class="btn btn-sm btn-secondary">Προβολή</button></div></td>
+          </tr>
+          <tr>
+            <td class="text-mono">SP-2026-H1-002</td>
+            <td>ΕΚΠΑ / ΕΛΚΕ</td>
+            <td>Α' 2026</td>
+            <td><span class="status s-submitted">SUBMITTED</span></td>
+            <td>2 προγράμματα</td>
+            <td class="small">20/01/2026</td>
+            <td><div class="tbl-actions">
+              <button class="btn btn-sm btn-success" onclick="openModal('modal-approve-semplan')">Έγκριση</button>
+            </div></td>
+          </tr>
+          <tr>
+            <td class="text-mono">SP-2026-H1-003</td>
+            <td>ΙΔΕΚΕ Θεσσαλονίκης</td>
+            <td>Α' 2026</td>
+            <td><span class="status s-draft">DRAFT</span></td>
+            <td>1 πρόγραμμα</td>
+            <td class="small">—</td>
+            <td><div class="tbl-actions"><button class="btn btn-sm btn-secondary">Επεξεργασία</button></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-hd"><div class="card-title">Items — SP-2026-H1-001 ΙΔΕΚΕ Αθηνών</div></div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Item ID</th><th>Πρόγραμμα</th><th>Γνωστικό Αντικείμενο</th><th>Έναρξη</th><th>Λήξη</th><th>Κατάσταση</th><th>Εκπαιδ.</th></tr></thead>
+        <tbody>
+          <tr onclick="show('participants','Εκπαιδευόμενοι SP-001')">
+            <td class="text-mono">PI-001-A</td>
+            <td>Ψηφιακός Μετ/σμός ΜΜΕ</td>
+            <td><span class="pill">ΨΔ-01</span></td>
+            <td class="small">15/03/2026</td>
+            <td class="small">30/04/2026</td>
+            <td><span class="status s-review">ONGOING</span></td>
+            <td>24</td>
+          </tr>
+          <tr>
+            <td class="text-mono">PI-001-B</td>
+            <td>GDPR Δημόσιων Φορέων</td>
+            <td><span class="pill">ΝΟΜ-03</span></td>
+            <td class="small">01/04/2026</td>
+            <td class="small">30/05/2026</td>
+            <td><span class="status s-draft">PLANNED</span></td>
+            <td>0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ SCREEN: PARTICIPANTS ══════════════════ -->
+<div id="participants" class="screen">
+  <div class="page-hd">
+    <div><div class="page-title">Εκπαιδευόμενοι</div><div class="page-sub">UC-13_07 · PI-001-A · Ψηφιακός Μετ/σμός ΜΜΕ · 24 συμμετέχοντες</div></div>
+    <div class="btn-row">
+      <button class="btn btn-secondary btn-sm" onclick="openModal('modal-bulk-enroll')">👥 Μαζική Εγγραφή</button>
+      <button class="btn btn-primary btn-sm" onclick="openModal('modal-enroll')">＋ Εγγραφή</button>
+    </div>
+  </div>
+
+  <div class="grid3" style="margin-bottom:16px">
+    <div class="stat-card" style="padding:12px"><div class="stat-val">24</div><div class="stat-lbl">Εγγεγραμμένοι</div></div>
+    <div class="stat-card" style="padding:12px"><div class="stat-val" style="color:var(--green)">18</div><div class="stat-lbl">PASS</div></div>
+    <div class="stat-card" style="padding:12px"><div class="stat-val" style="color:var(--red)">4</div><div class="stat-lbl">FAIL</div></div>
+  </div>
+
+  <div class="card">
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Συμμετέχων</th><th>ΑΦΜ</th><th>Αποτέλεσμα</th><th>Βαθμολογία</th><th>Παρουσίες</th><th>Κωδ. Πιστ/σης</th><th>Κατάσταση</th><th style="text-align:right">Ενέργειες</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:500">Ι. Παπαγεωργίου</td>
+            <td class="text-mono small">12345678</td>
+            <td><span class="status s-pass">PASS</span></td>
+            <td>82/100</td>
+            <td>95%</td>
+            <td class="text-mono small">CC-2026-EDU-000001</td>
+            <td><span class="status s-certified">FINALIZED 🏅</span></td>
+            <td><div class="tbl-actions"><button class="btn btn-sm btn-secondary">📜 Πιστ/κό</button></div></td>
+          </tr>
+          <tr>
+            <td style="font-weight:500">Κ. Αντωνιάδης</td>
+            <td class="text-mono small">23456789</td>
+            <td><span class="status s-pass">PASS</span></td>
+            <td>76/100</td>
+            <td>88%</td>
+            <td class="text-mono small">CC-2026-EDU-000002</td>
+            <td><span class="status s-certified">FINALIZED 🏅</span></td>
+            <td><div class="tbl-actions"><button class="btn btn-sm btn-secondary">📜 Πιστ/κό</button></div></td>
+          </tr>
+          <tr>
+            <td style="font-weight:500">Ν. Παπαδάκη</td>
+            <td class="text-mono small">34567890</td>
+            <td><span class="status s-fail">FAIL</span></td>
+            <td>41/100</td>
+            <td>72%</td>
+            <td>—</td>
+            <td><span class="status s-submitted">FINALIZED</span></td>
+            <td><div class="tbl-actions"><button class="btn btn-sm btn-ghost">Λεπτ/ές</button></div></td>
+          </tr>
+          <tr>
+            <td style="font-weight:500">Δ. Σταυρόπουλος</td>
+            <td class="text-mono small">45678901</td>
+            <td><span class="status s-pending">PENDING</span></td>
+            <td>—</td>
+            <td>100%</td>
+            <td>—</td>
+            <td><span class="status s-draft">PENDING</span></td>
+            <td><div class="tbl-actions">
+              <button class="btn btn-sm btn-primary" onclick="openModal('modal-set-result')">Καταχώρηση</button>
+            </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="btn-row" style="justify-content:flex-end">
+    <button class="btn btn-success" onclick="openModal('modal-finalize')">⚡ Οριστικοποίηση Αποτελεσμάτων</button>
+  </div>
+</div>
+
+<!-- ══════════════════ SCREEN: PORTAL ══════════════════ -->
+<div id="portal" class="screen">
+  <div class="page-hd">
+    <div><div class="page-title">Portal Υποβολής — UC-13_05</div><div class="page-sub">Φορέας: ΙΔΕΚΕ Θεσσαλονίκης · PR_PORTAL_SUBMIT_ISSUANCE</div></div>
+  </div>
+
+  <div class="portal-wrap">
+    <div style="display:flex;align-items:center;gap:0;margin-bottom:24px">
+      <div class="portal-step"><div class="portal-step-num done">✓</div><div style="font-size:12px;font-weight:500">Στοιχεία Φορέα</div></div>
+      <div class="portal-step-line"></div>
+      <div class="portal-step"><div class="portal-step-num done">✓</div><div style="font-size:12px;font-weight:500">Στοιχεία Προγράμματος</div></div>
+      <div class="portal-step-line"></div>
+      <div class="portal-step"><div class="portal-step-num" style="background:var(--accent)">3</div><div style="font-size:12px;font-weight:500;color:var(--accent)">ΕΝΤΥΠΟ ΕΛΕΓΧΟΥ</div></div>
+      <div class="portal-step-line"></div>
+      <div class="portal-step"><div class="portal-step-num inactive">4</div><div style="font-size:12px;color:var(--text3)">Υποβολή</div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-hd"><div class="card-title">ΕΝΤΥΠΟ ΕΛΕΓΧΟΥ ΑΙΤΗΜΑΤΟΣ ΠΙΣΤΟΠΟΙΗΣΗΣ (APINET_1_12_01)</div></div>
+      <div class="alert alert-info" style="margin-bottom:16px"><div class="alert-icon">ℹ️</div><div>Τα πεδία αποθηκεύονται ως <strong>APINET_CHECKLIST_JSON IS JSON</strong> στο CERT_ISSUANCE. Η υπεύθυνη δήλωση είναι υποχρεωτική.</div></div>
+      <div class="form-grid">
+        <div class="fld"><label class="required">Τίτλος Φορέα</label><input value="ΙΔΕΚΕ Θεσσαλονίκης"></div>
+        <div class="fld"><label class="required">ΑΦΜ Φορέα</label><input value="998877665"></div>
+        <div class="fld form-full"><label class="required">Τίτλος Προγράμματος</label><input value="Διοικητικά Στελέχη — Επικοινωνία & Διαπραγμάτευση"></div>
+        <div class="fld"><label class="required">Συνολικές Ώρες</label><input type="number" value="40"></div>
+        <div class="fld"><label class="required">Γνωστικό Αντικείμενο</label>
+          <select><option>Επικοινωνία</option><option>Ηγεσία</option><option>ΤΠΕ</option></select></div>
+        <div class="fld form-full"><label class="required">Ομάδα-Στόχος</label>
+          <textarea rows="2">Στελέχη δημοσίων υπηρεσιών με αντικείμενο διοίκησης, ηλικίας 30-55, με βασική γνώση διοικητικών διαδικασιών.</textarea></div>
+        <div class="fld form-full"><label>Τρόπος Υλοποίησης</label>
+          <select><option>Δια ζώσης</option><option selected>Υβριδικό</option><option>e-Learning</option></select></div>
+        <div class="fld form-full"><label>Μέθοδος Αξιολόγησης</label>
+          <textarea rows="2">MCQ online test (60%) + ομαδική εργασία (40%). Βάση επιτυχίας: 50%.</textarea></div>
+        <div class="fld form-full"><label>Προαπαιτούμενα</label><input value="Βασικές γνώσεις δημόσιας διοίκησης"></div>
+        <div class="fld form-full"><label>Προφίλ Εκπαιδευτή</label>
+          <textarea rows="2">Κάτοχος πτυχίου Επικοινωνίας ή MBA, εμπειρία ≥5 ετών σε εκπαίδευση στελεχών.</textarea></div>
+      </div>
+      <div class="divider"></div>
+      <div style="display:flex;align-items:flex-start;gap:10px;padding:10px;background:#f0fdf4;border-radius:8px;margin-top:4px">
+        <input type="checkbox" id="decl" style="margin-top:2px" checked>
+        <label for="decl" style="font-size:12px;color:var(--text)">Δηλώνω ότι τα στοιχεία που υποβάλλω είναι αληθή και πλήρη. Η ψευδής δήλωση επισύρει ποινικές και διοικητικές κυρώσεις (<strong>declaration_signed: true</strong>).</label>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:8px">
+      <button class="btn btn-secondary">← Προηγούμενο</button>
+      <button class="btn btn-primary" onclick="openModal('modal-portal-confirm')">Υποβολή Αίτησης →</button>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- ══════════════════ MODALS ══════════════════ -->
+
+<div class="modal-overlay" id="modal-new-issuance">
+  <div class="modal">
+    <div class="modal-hd"><div><div class="modal-title">Νέος Φάκελος Πιστοποίησης</div><div class="modal-sub">PR_INIT_ISSUANCE · SUBMISSION_SOURCE_CD = INTERNAL</div></div><button class="modal-close" onclick="closeModal('modal-new-issuance')">✕</button></div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="fld form-full"><label class="required">Φορέας</label>
+          <select><option>ΙΔΕΚΕ Αθηνών</option><option>ΙΔΕΚΕ Θεσσαλονίκης</option><option>ΕΚΠΑ/ΕΛΚΕ</option></select></div>
+        <div class="fld form-full"><label class="required">Τίτλος Προγράμματος</label><input placeholder="Εισάγετε τίτλο..."></div>
+        <div class="fld"><label class="required">Τύπος Πιστοποίησης</label>
+          <select><option>EDU-STANDARD</option><option>EDU-ADVANCED</option><option>EDU-MICRO</option></select></div>
+        <div class="fld"><label>Πηγή Υποβολής</label>
+          <select><option>INTERNAL</option><option>PORTAL</option></select></div>
+      </div>
+    </div>
+    <div class="modal-ft"><button class="btn btn-secondary" onclick="closeModal('modal-new-issuance')">Ακύρωση</button><button class="btn btn-primary" onclick="closeModal('modal-new-issuance');show('detail','Νέος Φάκελος')">Δημιουργία</button></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-certify">
+  <div class="modal">
+    <div class="modal-hd"><div><div class="modal-title">✅ Πιστοποίηση — PR_CERTIFY_ISSUANCE</div><div class="modal-sub">KEP_DECISION_REC → CERTIFIED · Κωδ. CERT-EDU-2026-XXXX</div></div><button class="modal-close" onclick="closeModal('modal-certify')">✕</button></div>
+    <div class="modal-body">
+      <div class="alert alert-info"><div class="alert-icon">🔒</div><div>Η απόφαση θα δεσμευτεί με <strong>DF_VER_ID = v2 (LOCKED)</strong> μέσω FN_GET_ACTIVE_DF_VER. Θα ξεκινήσει ΔΙΑΥΓΕΙΑ INTEROP (UC-14).</div></div>
+      <div class="form-grid">
+        <div class="fld form-full"><label class="required">Αρ. Πρωτοκόλλου Απόφασης</label><input placeholder="π.χ. ΑΠ 5021/2026"></div>
+        <div class="fld"><label class="required">Ημερομηνία Απόφασης</label><input type="date" value="2026-03-20"></div>
+        <div class="fld"><label>Ισχύς Πιστοποίησης από</label><input type="date" value="2026-03-20"></div>
+        <div class="fld"><label>Ισχύς Πιστοποίησης έως</label><input type="date" value="2029-03-20"></div>
+      </div>
+    </div>
+    <div class="modal-ft"><button class="btn btn-secondary" onclick="closeModal('modal-certify')">Ακύρωση</button><button class="btn btn-success" onclick="closeModal('modal-certify');toast('✅ Πιστοποίηση καταχωρήθηκε! ΔΙΑΥΓΕΙΑ σε αναμονή.')">Εκτέλεση</button></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-conclude">
+  <div class="modal">
+    <div class="modal-hd"><div><div class="modal-title">⚖️ Ολοκλήρωση Συνεδρίασης ΚΕΠ</div><div class="modal-sub">PR_CONCLUDE_SESSION → CERT_ISSUANCE.CASE_STATUS = KEP_DECISION_REC</div></div><button class="modal-close" onclick="closeModal('modal-conclude')">✕</button></div>
+    <div class="modal-body">
+      <div class="alert alert-success"><div class="alert-icon">🔗</div><div><strong>Αποτέλεσμα: APPROVE (3–1)</strong><br>Η ολοκλήρωση θα ενεργοποιήσει αυτόματα: <br>→ <code>CERT_ISSUANCE SET CASE_STATUS='KEP_DECISION_REC'</code><br>→ <code>CERT_CASE_STATUS_HIS</code> entry<br>→ Notification <code>CERT_KEP_DECISION_RECORDED</code></div></div>
+      <div class="form-grid">
+        <div class="fld"><label class="required">Αρ. Πρακτικού</label><input value="8/2026"></div>
+        <div class="fld"><label class="required">Ημερομηνία</label><input type="date" value="2026-03-18"></div>
+        <div class="fld form-full"><label>Κείμενο Πρακτικού (MINUTES_TEXT)</label><textarea rows="3">Η ΚΕΠ εξέτασε τον φάκελο πιστοποίησης ΕΑΠ — Δημόσια Διοίκηση 2.0 και αποφάσισε πιστοποίηση (3-1).</textarea></div>
+      </div>
+    </div>
+    <div class="modal-ft"><button class="btn btn-secondary" onclick="closeModal('modal-conclude')">Ακύρωση</button><button class="btn btn-success" onclick="closeModal('modal-conclude');toast('⚖️ Απόφαση ΚΕΠ καταχωρήθηκε! Φάκελος → KEP_DECISION_REC')">Ολοκλήρωση & Bridge</button></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-copy-ver">
+  <div class="modal">
+    <div class="modal-hd"><div><div class="modal-title">📋 Copy-Forward Έκδοσης Ύλης</div><div class="modal-sub">PR_COPY_DF_VER · SOURCE_VER_ID → v4 DRAFT</div></div><button class="modal-close" onclick="closeModal('modal-copy-ver')">✕</button></div>
+    <div class="modal-body">
+      <div class="alert alert-info"><div class="alert-icon">ℹ️</div><div>Η v3 DRAFT θα κλωνοποιηθεί ως v4 DRAFT. Το <strong>SOURCE_VER_ID = v3</strong> θα αποθηκευτεί για ιχνηλασιμότητα. Η v3 παραμένει DRAFT.</div></div>
+      <div class="fld"><label>Τίτλος Νέας Έκδοσης</label><input value="Ψηφιακός Μετ/σμός ΜΜΕ v4 (2026-2027)"></div>
+    </div>
+    <div class="modal-ft"><button class="btn btn-secondary" onclick="closeModal('modal-copy-ver')">Ακύρωση</button><button class="btn btn-purple" onclick="closeModal('modal-copy-ver');toast('📋 v4 DRAFT δημιουργήθηκε! SOURCE_VER_ID=v3 αποθηκεύτηκε.')">Δημιουργία v4</button></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-submit-df">
+  <div class="modal">
+    <div class="modal-hd"><div><div class="modal-title">📤 Υποβολή Ύλης για Έγκριση</div><div class="modal-sub">PR_SUBMIT_DF_VER · DRAFT → SUBMITTED</div></div><button class="modal-close" onclick="closeModal('modal-submit-df')">✕</button></div>
+    <div class="modal-body">
+      <div class="alert alert-warn"><div class="alert-icon">⚠️</div><div>2 ενότητες περιέχουν PLACEHOLDERs. Η υποβολή επιτρέπεται αλλά θα καταγραφεί <strong>NEEDS_ENRICHMENT=Y</strong>.</div></div>
+      <div style="font-size:12px;color:var(--text2)">Completeness: <strong>11/11 ✓</strong> · Hours: <strong>75=75 ✓</strong> · Modules: <strong>2 ✓</strong> · Skills: <strong>5 ✓</strong></div>
+    </div>
+    <div class="modal-ft"><button class="btn btn-secondary" onclick="closeModal('modal-submit-df')">Ακύρωση</button><button class="btn btn-warn" onclick="closeModal('modal-submit-df');toast('📤 Ύλη v3 υποβλήθηκε! NEEDS_ENRICHMENT=Y καταγράφηκε.')">Υποβολή</button></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-bulk-enroll">
+  <div class="modal">
+    <div class="modal-hd"><div><div class="modal-title">👥 Μαζική Εγγραφή Εκπαιδευομένων</div><div class="modal-sub">PR_BULK_ENROLL · PI-001-A · DT_END=30/04/2026</div></div><button class="modal-close" onclick="closeModal('modal-bulk-enroll')">✕</button></div>
+    <div class="modal-body">
+      <div class="fld"><label>Λίστα ΑΦΜ (ένα ανά γραμμή ή CSV)</label><textarea rows="6" placeholder="12345678&#10;23456789&#10;34567890&#10;..."></textarea></div>
+      <div class="fld-note">Επικύρωση: duplicate skip · date range check vs 30/04/2026 · P_SUCCESS_COUNT + P_ERROR_LOG</div>
+    </div>
+    <div class="modal-ft"><button class="btn btn-secondary" onclick="closeModal('modal-bulk-enroll')">Ακύρωση</button><button class="btn btn-primary" onclick="closeModal('modal-bulk-enroll');toast('👥 Bulk enroll: 22 επιτυχείς, 2 skip (duplicate), 0 errors')">Εκτέλεση</button></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-import-preview">
+  <div class="modal" style="max-width:640px">
+    <div class="modal-hd"><div><div class="modal-title">📥 Preview JSON Import</div><div class="modal-sub">PR_BULK_IMPORT_QUESTIONS · 66 ερωτήσεις</div></div><button class="modal-close" onclick="closeModal('modal-import-preview')">✕</button></div>
+    <div class="modal-body">
+      <div style="background:#1a2540;border-radius:8px;padding:14px;font-family:var(--mono);font-size:11px;color:#a8d0f0;overflow-x:auto">
+[<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"question_type": "MC",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"stem": "Ποια αρχή GDPR αφορά τον περιορισμό σκοπού;",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"difficulty": "MEDIUM",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"unit_cd": "GDPR",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"choices": [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"label":"A","text":"Περιορισμός σκοπού","is_correct":"Y"},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"label":"B","text":"Ελαχιστοποίηση δεδομένων","is_correct":"N"},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"label":"C","text":"Ακρίβεια","is_correct":"N"},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"label":"D","text":"Ασφάλεια","is_correct":"N"}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+&nbsp;&nbsp;}, ...<br>
+]</div>
+      <div style="margin-top:12px;font-size:12px;color:var(--text2)">66 ερωτήσεις · 48 MC · 12 SC · 6 TF · JSON valid ✓</div>
+    </div>
+    <div class="modal-ft"><button class="btn btn-secondary" onclick="closeModal('modal-import-preview')">Ακύρωση</button><button class="btn btn-primary" onclick="closeModal('modal-import-preview');toast('📥 Import: 63 επιτυχείς, 3 errors. Δείτε import log.')">Εκτέλεση Import</button></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-portal-confirm">
+  <div class="modal">
+    <div class="modal-hd"><div><div class="modal-title">🌐 Επιβεβαίωση Υποβολής Portal</div><div class="modal-sub">PR_PORTAL_SUBMIT_ISSUANCE · SUBMISSION_SOURCE_CD=PORTAL</div></div><button class="modal-close" onclick="closeModal('modal-portal-confirm')">✕</button></div>
+    <div class="modal-body">
+      <div class="alert alert-info"><div class="alert-icon">ℹ️</div><div>Η υποβολή θα ελεγχθεί ως εξής:<br>1. Provider CONFIRMED guard<br>2. APINET_CHECKLIST_JSON validation<br>3. DRAFT → SUBMITTED (one-shot)<br>4. DMS INTEROP (PROTOCOL_REGISTER)<br>5. Ack notification στο portal user</div></div>
+    </div>
+    <div class="modal-ft"><button class="btn btn-secondary" onclick="closeModal('modal-portal-confirm')">Πίσω</button><button class="btn btn-primary" onclick="closeModal('modal-portal-confirm');toast('🌐 Portal submission καταχωρήθηκε! Αρ. Φακέλου: CERT-EDU-2026-0015. Θα ειδοποιηθείτε.')">Υποβολή</button></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-completeness">
+  <div class="modal">
+    <div class="modal-hd"><div><div class="modal-title">📋 Έλεγχος Πληρότητας</div><div class="modal-sub">PR_START_COMPLETENESS_CHECK · SUBMITTED → COMPLETENESS_CHECK</div></div><button class="modal-close" onclick="closeModal('modal-completeness')">✕</button></div>
+    <div class="modal-body">
+      <div style="font-size:12px;display:flex;flex-direction:column;gap:6px">
+        <div class="flex"><span style="color:var(--green)">✓</span><span>Φάκελος τεκμηρίωσης επισυνάφθηκε</span></div>
+        <div class="flex"><span style="color:var(--green)">✓</span><span>CERT_DESIGN_FOLDER υπάρχει</span></div>
+        <div class="flex"><span style="color:var(--red)">✗</span><span>Πιστοποιητικό σπουδών εκπαιδευτή — λείπει</span></div>
+        <div class="flex"><span style="color:var(--red)">✗</span><span>Αναλυτικό ωρολόγιο — λείπει</span></div>
+      </div>
+    </div>
+    <div class="modal-ft">
+      <button class="btn btn-secondary" onclick="closeModal('modal-completeness')">Ακύρωση</button>
+      <button class="btn btn-danger btn-sm" onclick="closeModal('modal-completeness');toast('⚠️ Φάκελος → INCOMPLETE. Ειδοποίηση στον φορέα.')">Επιστροφή INCOMPLETE</button>
+      <button class="btn btn-success" onclick="closeModal('modal-completeness');toast('✅ Έλεγχος ξεκίνησε. SUBMITTED → COMPLETENESS_CHECK.')">Έναρξη Ελέγχου</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-finalize">
+  <div class="modal">
+    <div class="modal-hd"><div><div class="modal-title">⚡ Οριστικοποίηση Αποτελεσμάτων</div><div class="modal-sub">PR_FINALIZE_RESULTS · PI-001-A</div></div><button class="modal-close" onclick="closeModal('modal-finalize')">✕</button></div>
+    <div class="modal-body">
+      <div class="alert alert-warn"><div class="alert-icon">⚠️</div><div>1 συμμετέχων σε κατάσταση PENDING. Απαιτείται καταχώρηση αποτελέσματος πριν οριστικοποίηση.</div></div>
+    </div>
+    <div class="modal-ft"><button class="btn btn-secondary" onclick="closeModal('modal-finalize')">Πίσω</button></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-set-result">
+  <div class="modal">
+    <div class="modal-hd"><div><div class="modal-title">Καταχώρηση Αποτελέσματος</div><div class="modal-sub">PR_SET_RESULT · Δ. Σταυρόπουλος</div></div><button class="modal-close" onclick="closeModal('modal-set-result')">✕</button></div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="fld"><label class="required">Αποτέλεσμα</label>
+          <select><option>PENDING</option><option>PASS</option><option>FAIL</option><option>SPECIAL</option><option>ABSENT</option></select></div>
+        <div class="fld"><label>Βαθμολογία (0-100)</label><input type="number" placeholder="—"></div>
+        <div class="fld"><label>Ποσοστό Παρουσιών (%)</label><input type="number" value="100"></div>
+      </div>
+    </div>
+    <div class="modal-ft"><button class="btn btn-secondary" onclick="closeModal('modal-set-result')">Ακύρωση</button><button class="btn btn-primary" onclick="closeModal('modal-set-result');toast('✅ Αποτέλεσμα καταχωρήθηκε.')">Αποθήκευση</button></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-approve-semplan">
+  <div class="modal">
+    <div class="modal-hd"><div><div class="modal-title">Έγκριση Εξαμηνιαίου Προγράμματος</div><div class="modal-sub">PR_APPROVE_SEMESTER_PLAN · SP-2026-H1-002</div></div><button class="modal-close" onclick="closeModal('modal-approve-semplan')">✕</button></div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="fld"><label class="required">Αρ. Πρωτοκόλλου</label><input placeholder="ΑΠ ΧΧΧΧ/2026"></div>
+        <div class="fld"><label class="required">Ημερομηνία</label><input type="date" value="2026-03-20"></div>
+      </div>
+    </div>
+    <div class="modal-ft"><button class="btn btn-secondary" onclick="closeModal('modal-approve-semplan')">Ακύρωση</button><button class="btn btn-success" onclick="closeModal('modal-approve-semplan');toast('✅ Εξαμηνιαίο Πρόγραμμα ΕΚΠΑ εγκρίθηκε!')">Έγκριση</button></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-notcertify">
+  <div class="modal">
+    <div class="modal-hd"><div><div class="modal-title">✗ Μη Πιστοποίηση</div><div class="modal-sub">PR_NOT_CERTIFY_ISSUANCE · KEP_DECISION_REC → NOT_CERTIFIED</div></div><button class="modal-close" onclick="closeModal('modal-notcertify')">✕</button></div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="fld form-full"><label class="required">Αρ. Πρωτοκόλλου Απόφασης</label><input placeholder="ΑΠ ΧΧΧΧ/2026"></div>
+        <div class="fld"><label class="required">Ημερομηνία</label><input type="date"></div>
+        <div class="fld form-full"><label class="required">Αιτιολόγηση Απόρριψης</label><textarea rows="3" placeholder="Περιγράψτε τους λόγους μη πιστοποίησης..."></textarea></div>
+      </div>
+    </div>
+    <div class="modal-ft"><button class="btn btn-secondary" onclick="closeModal('modal-notcertify')">Ακύρωση</button><button class="btn btn-danger" onclick="closeModal('modal-notcertify');toast('✗ Μη πιστοποίηση καταχωρήθηκε.')">Εκτέλεση</button></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" style="position:fixed;bottom:20px;right:20px;background:var(--navy);color:#fff;padding:12px 18px;border-radius:12px;font-size:13px;font-weight:500;z-index:999;opacity:0;transition:opacity 0.3s;max-width:360px;box-shadow:0 8px 24px rgba(0,0,0,0.3)"></div>
+
+<script>
+// ── NAV ──────────────────────────────────────────────────────────
+function show(id, title) {
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  const sc = document.getElementById(id);
+  if(sc) sc.classList.add('active');
+  document.getElementById('breadcrumb').innerHTML = 'Πιστοποίηση ‹span››‹/span› ' + title;
+  document.getElementById('breadcrumb').innerHTML = `<span>Πιστοποίηση</span> › ${title}`;
+  // Activate matching nav item
+  document.querySelectorAll('.nav-item').forEach(n => {
+    if(n.getAttribute('onclick') && n.getAttribute('onclick').includes("'"+id+"'")) {
+      n.classList.add('active');
+    }
+  });
+  window.scrollTo(0,0);
+}
+
+// ── MODALS ──────────────────────────────────────────────────────
+function openModal(id){ document.getElementById(id).classList.add('open'); }
+function closeModal(id){ document.getElementById(id).classList.remove('open'); }
+document.querySelectorAll('.modal-overlay').forEach(o=>{
+  o.addEventListener('click',e=>{ if(e.target===o) o.classList.remove('open'); });
+});
+
+// ── TOAST ───────────────────────────────────────────────────────
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.style.opacity='1';
+  setTimeout(()=>t.style.opacity='0',3500);
+}
+
+// ── VOTE ────────────────────────────────────────────────────────
+function castVote(el, type){
+  const row = el.closest('div[style*="flex"]');
+  row.querySelectorAll('.vote-card').forEach(c=>{
+    c.classList.remove('selected-for','selected-against','selected-abstain');
+  });
+  if(type==='FOR') el.classList.add('selected-for');
+  else if(type==='AGAINST') el.classList.add('selected-against');
+  else if(type==='ABSTAIN') el.classList.add('selected-abstain');
+  updateVoteResult();
+}
+function updateVoteResult(){
+  const forCnt = document.querySelectorAll('.selected-for').length;
+  const againstCnt = document.querySelectorAll('.selected-against').length;
+  const el = document.getElementById('vote-result');
+  if(!el) return;
+  let html='';
+  if(forCnt>againstCnt){ html=`<div style="font-size:36px">✅</div><div style="font-size:20px;font-weight:700;color:var(--green)">APPROVE</div><div style="font-size:12px;color:var(--text3);margin-top:4px">${forCnt} ΥΠΕΡ · ${againstCnt} ΚΑΤΑ</div>`; }
+  else if(againstCnt>forCnt){ html=`<div style="font-size:36px">❌</div><div style="font-size:20px;font-weight:700;color:var(--red)">REJECT</div><div style="font-size:12px;color:var(--text3);margin-top:4px">${forCnt} ΥΠΕΡ · ${againstCnt} ΚΑΤΑ</div>`; }
+  else{ html=`<div style="font-size:36px">⬜</div><div style="font-size:20px;font-weight:700;color:var(--gold)">INCONCLUSIVE</div>`; }
+  html+=`<div class="divider"></div><div class="alert alert-info" style="text-align:left;margin-top:8px"><div class="alert-icon">→</div><div>Κατά την ολοκλήρωση: <code>CERT_ISSUANCE.CASE_STATUS = 'KEP_DECISION_REC'</code></div></div>`;
+  el.innerHTML=html;
+}
+
+// ── VERSION SWITCH ───────────────────────────────────────────────
+const verData = {
+  1:{status:'MIGRATED_APPROVED',lock:'Y',mig:'Y',enrich:'Y',src:'NULL',desc:'Εισήχθη κατά migration από ESDD.I_CERTIF_PROG.AA=1042. CLOBs: PLACEHOLDER.',color:'#fef9c3',tc:'#713f12'},
+  2:{status:'APPROVED',lock:'Y',mig:'N',enrich:'N',src:'v1',desc:'Τελευταία εγκεκριμένη έκδοση. Χρησιμοποιείται για απόφαση πιστοποίησης CERT-EDU-2025-0012.',color:'#dcfce7',tc:'#166534'},
+  3:{status:'DRAFT',lock:'N',mig:'N',enrich:'N',src:'v2',desc:'Αντίγραφο από v2 (Copy-Forward). Επεξεργάσιμη. Δεν επηρεάζει τρέχουσα πιστοποίηση.',color:'#dbeafe',tc:'#1d4ed8'}
+};
+function switchVer(v){
+  ['vb1','vb2','vb3'].forEach((id,i)=>{
+    const el=document.getElementById(id);
+    if(!el) return;
+    el.style.outline = (i+1===v) ? '2px solid var(--accent)' : 'none';
+  });
+  const d=verData[v];
+  const p=document.getElementById('ver-panel');
+  if(!p) return;
+  p.innerHTML=`<div style="background:${d.color};border-radius:10px;padding:12px 14px;font-size:12px">
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:8px">
+      <div><div style="font-size:10px;color:var(--text3)">STATUS</div><div style="font-weight:600;color:${d.tc}">${d.status}</div></div>
+      <div><div style="font-size:10px;color:var(--text3)">LOCKED_FLG</div><div style="font-weight:600">${d.lock}</div></div>
+      <div><div style="font-size:10px;color:var(--text3)">MIGRATION_FLG</div><div style="font-weight:600">${d.mig}</div></div>
+      <div><div style="font-size:10px;color:var(--text3)">NEEDS_ENRICHMENT</div><div style="font-weight:600">${d.enrich}</div></div>
+      <div><div style="font-size:10px;color:var(--text3)">SOURCE_VER_ID</div><div style="font-weight:600">${d.src}</div></div>
+    </div>
+    <div style="color:var(--text2)">${d.desc}</div>
+  </div>`;
+}
+switchVer(2); // default to v2
+
+// ── DF TABS ──────────────────────────────────────────────────────
+function dfTab(el, tabId){
+  document.querySelectorAll('#df_edit .tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  ['df-tab-general','df-tab-units','df-tab-schedule','df-tab-assessment','df-tab-compliance'].forEach(id=>{
+    const el2=document.getElementById(id);
+    if(el2) el2.style.display = (id===tabId) ? 'block' : 'none';
+  });
+}
+</script>
+</body>
+</html>

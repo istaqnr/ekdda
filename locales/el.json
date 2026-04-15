@@ -1,0 +1,461 @@
+{
+  "INDEX": {
+    "ACTIONS": "Ενέργειες",
+    "ACTIVATE": "Ενεργοποίηση",
+    "ADD": "Προσθήκη",
+    "ADD_NEW_ROW": "Προσθήκη Νέας Γραμμής",
+    "APPROVE": "Έγκριση",
+    "APPROVE_PAYMENT": "Έγκριση Πληρωμής",
+    "APPLY": "ΕΚΤΕΛΕΣΗ",
+
+    "BACK": "ΕΠΙΣΤΡΟΦΗ",
+    "BENEF_PERS_INFO": "Προσωπικά Στοιχεία Δικαιούχου",
+
+    "CANCEL": "'Ακυρο",
+    "CANCEL_TAFT_OF": "Θέλετε να ακυρώσετε αυτή την ταυτότητα πληρωμής;",
+    "CANCEL_ACTION": "Ακύρωση",
+    "CHANGE": "Αλλαγή",
+    "CLEAR": "Καθαρισμός",
+    "CLOSE": "Κλείσιμο",
+    "COMPENSATION_DISPOSITION": "Υπολογισμός Αποζημίωσης λόγω διάθεσης",
+    "COMPENSATION_DIVESTMENT": "Υπολογισμός Αποζημίωσης λόγω εκποίησης",
+    "COMPLETE": "Ολοκλήρωση",
+    "CONFIRM": "Αποθήκευση",
+    "CONFIRM_COMPLETE": "Το Πρωτόκολλο πρόκειται να ολοκληρωθεί. Είστε σίγουρος;",
+    "CONFIRM_SUBMIT": "Είστε σίγουρος/η ότι θέλετε να προχωρήσετε σε υποβολή;",
+    "CONFIRM_PAYMENT_APPROVE": "Είστε σίγουρος/η ότι θέλετε να προχωρήσετε στην έγκριση των πληρωμών;",
+    "CONFIRM_PAYMENT_REJECT": "Είστε σίγουρος/η ότι θέλετε να προβείτε σε επιστροφή χρημάτων;",
+    "CONTINUE": "Συνέχεια",
+    "CORRECTION_BTN": "Προς Διόρθωση",
+    "COPY": "Αντιγραφή",
+    "CULCULATE_TEMPORARY_SAVE": "Υπολογισμός Δόσεων & Προσωρινή αποθήκευση",
+
+    "CREATE_ENTRY": "Δημιουργία Εγγραφής",
+
+    "DEACTIVATE": "Απενεργοποίηση και Επεξεργασία",
+    "DEC_DETAILS": "Στοιχεία Απόφασης",
+    "DELETE": "Διαγραφή",
+    "DELETE_ENTRY": "Διαγραφή Εγγραφής",
+
+    "EDIT": "Επεξεργασία",
+
+    "EDIT_ENTRY": "Επεξεργασία Εγγραφής",
+    "EXPORT_GRID": "Εξαγωγή Πίνακα",
+
+    "FIRST_PAGE": "Πρώτη Σελίδα",
+    "FILE_UPLOAD": "Ανάρτηση αρχείου",
+    "FILTER": "Φιλτράρισμα Αποτελεσμάτων",
+    "FINALIZE": "Οριστικοποίηση",
+
+    "HEADER_TITLE": "Ανεξάρτητη Αρχή Δημοσίων Εσόδων (ΑΑΔΕ)",
+    "HEADER_TITLE_CITIZEN": "Ηλεκτρονικές Υπηρεσίες προς τους Πολίτες",
+    "HEADER_TITLE_PEF": "Ηλεκτρονικές Υπηρεσίες προς Φορείς Ελληνικού Δημοσίου",
+
+    "KATIGORIES_YPOKATIGORIES": "Κατηγορίες-Υποκατηγορίες Υλικού",
+
+    "LAST_PAGE": "Τελευταία Σελίδα",
+    "LEGAL_PREREQUISITES": "Είστε σίγουρος/η ότι θέλετε να προχωρήσετε με την προώθηση για έγκριση του ελέγχου νομίμων προυποθέσεων;",
+    "LOADING": "Φόρτωση...",
+    "LOGIN": "Σύνδεση",
+    "LOGIN_EXPIRED": "Η σύνδεση έληξε",
+    "LOGOUT": "Αποσύνδεση",
+
+    "MASS_REMOVE_LIST": "Είστε σίγουρος/η ότι θέλετε να προχωρήσετε με την μαζική απένταξη από τη λίστα;",
+    "MASS_REMOVE_SUCCESS": "Η μαζική αφαίρεση του είδους από τη λίστα ολοκληρώθηκε με επιτυχία.",
+
+    "NEW_ANNOUNCEMENT": "Νέα Αναγγελία",
+    "NEW_PROTOCOL": "Νεό Πρωτόκολλο",
+    "NEXT_PAGE": "Επόμενη Σελίδα",
+    "NO": "Όχι",
+    "NOTIFICATIONS": "Ειδοποιήσεις",
+    "NOTIF_WARN": "Αν δεν βλέπετε τις ειδοποιήσεις σας, ελέγξτε στις ρυθμίσεις του υπολογιστή σας αν είναι ενεργή η σίγαση για την προβολή.",
+
+    "OF": "από",
+
+    "PAGE": "Σελίδα",
+    "PASSWORD": "Κωδικός πρόσβασης",
+    "PAYMENT_CUSTODY_EXPENSES": "Πληρωμή Υπολοίπου Εξόδων Φύλαξης",
+    "PLEASE_LOGIN": " Παρακαλώ συνδεθείτε για πρόσβαση στην εφαρμογή",
+    "PREVIOUS_PAGE": "Προηγούμενη Σελίδα",
+    "PRINT": "Εκτύπωση",
+    "PROSSESING": "Υπό επεξεργασία...",
+    "PROTOKOL_PARADOSIS": "Είστε σίγουρος ότι θέλετε να δημιουργήσετε πρωτόκολλο παράδοσης για τα επιλεγμένα είδη;",
+
+    "RECORD_DELETED": "Η εγγραφή διαγράφηκε",
+    "RECORD_INSERT": "Η εγγραφή προστέθηκε",
+    "RECORD_UPDATED": "Η εγγραφή ενημερώθηκε",
+    "REMOVE": "Αφαίρεση",
+    "REMOVE_FILE": "αφαίρεση αρχείου",
+    "REPORT": "ΕΚΤΥΠΩΣΗ",
+    "RETRIEVE_FAILED": "Αποτυχία φόρτωσης",
+    "ROWS_PER_PAGE": "Γραμμές ανά σελίδα:",
+
+    "SAVE": "Αποθήκευση",
+    "SAVE_FAILED": "Αποτυχία αποθήκευσης",
+    "SAVE_SUCCESS": "Επιτυχημένη αποθήκευση",
+    "SAVING": "Αποθήκευση...",
+    "SEARCH": "Αναζήτηση",
+    "SEE_MORE": "Δείτε Περισσότερα",
+    "SELECT_FILE": "Επιλέξτε αρχείο",
+    "SETTINGS": "Ρυθμίσεις",
+    "SOMETHING_WENT_WRONG": "Κάτι πήγε στραβά...",
+    "START_INSPECTION": "Εκκίνηση Ελέγχου",
+    "STORAGE_COSTS": "Υπολογισμός Εξόδων Φύλαξης",
+    "STORAGE_COSTS_CALCULATION": "Υπολογισμος Υπόλοιπου Εξόδων φύλαξης",
+    "SUBMIT": "Υποβολή",
+    "SUBMIT_SUCCESS": "Επιτυχημένη Υποβολή",
+
+    "TAXIS_LOGIN": "Σύνδεση στο TaxisNet",
+    "TEMPORARY_SAVE": "Προσωρινή αποθήκευση",
+    "TITLE": "Γεια σας!",
+    "TOGGLE_COLUMNS_VISIBILITY": "Εμφάνιση Στηλών",
+    "TODAY": "Σήμερα",
+
+    "REJECT": "Επιστροφή Χρημάτων",
+    "REJECT_BTN": "Απόρριψη",
+
+    "UPDATE": "Ενημέρωση Στοιχείων",
+    "UPLOAD_FILE": "μεταφόρτωση αρχείου",
+    "UPLOAD_SUCCESS": "Το αρχείο αποθηκεύτηκε",
+    "USER_PROFILE": "Προφίλ Χρήστη",
+    "USERNAME": "Όνομα χρήστη",
+
+    "VIEW": "Προβολή",
+    "VIEW_COL": "Εμφάνιση Στηλών",
+    "VIEW_ENTRY": "Προβολή Εγγραφής",
+    "VISIBLE_COLUMNS": "Visible Columns",
+
+    "WAITING": "Αναμονή...",
+    "WELCOME_MESSAGE": "Καλώς ήρθατε στις ηλεκτρονικές υπηρεσίες της Διευθυνσης Διαχείρησης Δημοσίου Υλικού (ΔΙ.Δ.Δ.Υ)",
+
+    "ASSIGN_TASKS": "Ανάθεση Εργασιών",
+
+    "YES": "Ναι",
+
+    "PAYMENT_DETAILS": "Λεπτομέρειες Πληρωμής",
+    "AMOUNT": "Ποσό",
+    "ANNOUNCEMENT_NUM": "Αριθμός Αναγγελίας",
+    "ANNOUNCEMENT_MATERIAL": "Υλικό",
+    "PAY_WITH_IRIS": "Πληρωμή με IRIS",
+    "PAY_WITH_CARD": "Πληρωμή με Κάρτα",
+    "PAY_WITH_RF_QR": "Πληρωμή με RF/QR",
+    "PRINT_RECEIPT": "Εκτύπωση Αποδειξης",
+    "PRINT_RECEIPT_RETURN": "Εκτύπωση Απόδειξη Επιστροφής"
+  },
+  "ERROR": {
+    "A_TO_Z": "Οι μόνοι επιτρεπτοί χαρακτήρες είναι κεφαλαίοι λατινικοί (A-Z).",
+    "A_TO_Z_AND_NUMBER": "Οι μόνοι επιτρεπτοί χαρακτήρες είναι κεφαλαίοι λατινικοί (A-Z) και αριθμοί (0-9).",
+    "AP_RZ_AND_NUMBER": "Οι μόνοι επιτρεπτοί χαρακτήρες είναι κεφαλαίοι λατινικοί (A-Z) εκτός του Q και αριθμοί (0-9).",
+
+    "EXACT_LENGTH": "Οι χαρακτήρες πρέπει να είναι ακριβώς ",
+    "A_TO_Z_AND_NUMBER_SPECIAL": "Οι μόνοι επιτρεπτοί χαρακτήρες είναι κεφαλαίοι λατινικοί (A-Z), αριθμοί (0-9) και οι ειδικοί χαρακτήρες (.,/, κενό).",
+    "A_TO_Z_HYPHENS_AND_NUMBERS": "Οι μόνοι επιτρεπτοί χαρακτήρες είναι κεφαλαίοι λατινικοί (A-Z), παύλες (-) και αριθμοί (0-9).",
+    "AFM_9_DIGITS": "Το ΑΦΜ πρέπει να αποτελείται από 9 ψηφία",
+
+    "CHARACTERS_NOT_ALLOWED": "Οι παρακάτω χαρακτήρες δεν επιτρέπονται",
+    "SPECIAL_CHARACTERS_ALLOWED": "Οι μόνοι επιτρεπτοί ειδικοί χαρακτήρες ",
+
+    "DATE": "Μη αποδεκτή Ημ/νία",
+    "TIME": "Μη αποδεκτή ώρα",
+
+    "GREEK_AND_NUMBERS": "Οι μόνοι επιτρεπτοί χαρακτήρες είναι κεφαλαίοι ελληνικοί (Α-Ω) και αριθμοί (0-9).",
+
+    "DATE_BEFORE_OR_EQUAL_TO": "Η μέγιστη δυνατή ημ/νία είναι",
+
+    "FIELD_IS_POSITIVE": "Η τιμή πρέπει να είναι μεγαλύτερη ή ίση με 0",
+    "FIELD_IS_LESS_THAN_100": "Η τιμή πρέπει να είναι μικρότερη από 100",
+    "FIELD_IS_REQUIRED": "Το πεδίο είναι υποχρεωτικό",
+
+    "INVALID_CREDENTIALS": "Λανθασμένα διαπιστευτήρια. Ελέγξτε το όνομα χρήστη και τον κωδικό πρόσβασής σας.",
+    "INVALID_IBAN": "Μη έγκυρο IBAN",
+    "INVALID_YEAR": "Μη έγκυρο έτος",
+
+    "LENGTH": "Το μήκος χαρακτήρων πρέπει είναι",
+
+    "MAT_STS_IS_ODP": "Λάθος κατάσταση πρωτοκόλλου.\n Η μαζική ενέργεια επιτρέπεται μόνο στην κατάσταση Προγραμματισμένο για Παράδοση",
+    "MAX_GREATER_THAN_MIN": "Το μέγιστο ποσό πρέπει να είναι μεγαλύτερο ή ίσο του ελάχιστου",
+    "MAX_LENGTH": "Το μέγιστο μήκος χαρακτήρων είναι",
+    "MUST_ACCEPT_TERMS": "Πρέπει να αποδεχτείτε τους όρους",
+    "MUST_HAVE_ONE_COLUMN": "Ο πίνακας πρέπει να περιέχει τουλάχιστον μία στήλη",
+
+    "NO_ROWS_SELECTED": "Δεν έχουν επιλεγεί εγγραφές",
+    "NOT_VALID_AFM": "Μη έγκυρο ΑΦΜ",
+    "NOT_VALID_EMAIL": "Μη έγκυρο email",
+    "ONLY_NUMBERS": "Οι μόνοι επιτρεπτοί χαρακτήρες είναι αριθμοί (0-9).",
+    "NUMBER_GREATER_OR_EQUAL_TO": "Η τιμή πρέπει να είναι μεγαλύτερη ή ίση του",
+    "NUMBER_GREATER_THAN": "Η τιμή πρέπει να είναι μεγαλύτερη του",
+
+    "PERSENTAGE_CHANGE": "Το ποσοστό πρέπει να είναι διαφορετικό από 0 και εντός των ορίων [-99, 99]",
+
+    "VALID_YEAR_RANGE_TO": "έως και",
+    "VALID_YEARS_RANGE_FROM": "Επιτρεπτά έτη από",
+    "VALUE_GRATER_OR_EQUAL_TO": "Η τιμή πρέπει να είναι μεγαλύτερη ή ίση του",
+    "VALUE_LOWER_OR_EQUAL_TO": "Η τιμή πρέπει να είναι μικρότερη ή ίση του",
+
+    "PAGE_NOT_FOUND": "Το περιεχόμενο που αναζητάτε δεν υπάρχει."
+  },
+  "ACMS": {
+    "ABRV": "Συντομογραφία",
+    "ACCESS_MANAGEMENT": "Διαχείριση Προσβάσεων",
+    "ACCESS_REQUEST": "Αίτημα Πρόσβασης",
+    "ACCESS_REQUESTS": "Αιτήματα Πρόσβασης",
+    "ACCESS_REQUESTS_SUBMISSION": "Υποβολή νέου αιτήματος πρόσβασης στο σύστημα",
+    "ACTIONS": "Ενέργειες",
+    "ACTIVE_ACCOUNT": "ΕΝΔΕΙΞΗ ΕΝΕΡΓΟΥ ΛΟΓΑΡΙΑΣΜΟΥ",
+    "ADDRESS": "Διεύθυνση",
+    "ADMIN": "Διαχειριστής",
+    "AFM": "ΑΦΜ",
+    "APPLICATIONS": "Εφαρμογές",
+    "APPROVED": "ΕΝΔΕΙΞΗ ΑΠΟΔΟΧΗΣ ΤΟΥ ΡΟΛΟΥ",
+    "AUTHORITY_ORG": "Υπηρεσία",
+
+    "CAN_DELETE": "Can Delete",
+    "CAN_EDIT": "Can Edit",
+    "CAN_INSERT": "Can Insert",
+    "CAN_READ": "Can Read",
+    "CAN_SELECT": "Can Select",
+    "CAN_USE": "Can use",
+    "CAN_VIEW": "Can View",
+    "CD": "Κωδικός",
+    "CODE_ROLE": "Κωδικός Ρόλου",
+    "COMMENTSTXT": "Παρατηρήσεις",
+
+    "DASHBOARD": "Επιφάνεια Εργασίας",
+    "DEFLEVELCD": "Επίπεδο ορισμού",
+    "DESCRIPTION": "Περιγραφή",
+    "DETAILED": "ΑΝΑΛΥΤΙΚΑ",
+
+    "ELEMENT_TYPE": "Τύπος",
+    "ELEMENT_TYPES": "Τύποι Αντικειμένων",
+
+    "EMAIL": "Email",
+    "ENABLED": "Ενεργοποιημένο",
+    "END_DATE": "Λήξη Ισχύος",
+    "END_DT": "Λήξη Ισχύος",
+    "ENTITIES": "Οντότητες",
+    "ENTITY_TYPE": "Τύπος Αντικειμένου",
+
+    "FATHERS_NAME": "Πατρώνυμο",
+    "FIELD": "Field",
+    "FIRSTNAME": "Όνομα",
+
+    "GROUPCD": "Κωδικός Ομάδας",
+
+    "HANDLE_DATETIME": "Ημερομηνία Διαχείρισης",
+    "HANDLED_DT": "Ημ.Διαχείρισης",
+    "HANDLER_DESC": "Χρήστης Διαχείρισης",
+
+    "INDEX_ORDER": "A/A",
+    "INVALID_CREDENTIALS": "Λανθασμένα διαπιστευτήρια. Ελέγξτε το όνομα χρήστη και τον κωδικό πρόσβασής σας.",
+    "IS_FINAL": "Ένδειξη Τελικού Status",
+
+    "LABEL": "Λεκτικό",
+    "LABELS": "Λεκτικά",
+    "LASTNAME": "Επώνυμο",
+
+    "MANAGEMENT_FILE_UPLOAD": "Διαχείριση Αρχείων",
+    "MENU": "Μενού",
+    "MENU_PER_ROLE": "Μενού ανά Ρόλο",
+    "MESSAGES": "Μηνύματα",
+    "MESSKEY": "Κωδικός",
+    "MESSLABEL": "Περιγραφή",
+    "MESSTYPE": "Κωδικός Τύπου Μηνύματος",
+
+    "NEW_REQUEST": "Νέο Αίτημα",
+    "NEW_REQUESTS": "Νέα Αιτήματα",
+    "NEW_REQUESTS_SUBTITLE": "Νέες αιτήσεις σε εκκρεμότητα για έγκριση",
+    "NEW_STATUS": "Νέα κατάσταση",
+
+    "ORG": "Φορέας",
+    "ORG_DESCRIPTION": "Φορέας/ Οργανισμός",
+    "ORG_PROFILE": "Προεπιλεγμένος Οργανισμός",
+    "ORG_TYPES_ABOUT": "Αφορα Πρόσβαση για",
+    "ORG_USERS": "ΧΡΗΣΤΕΣ ΟΡΓΑΝΙΣΜΟΥ",
+    "ORGANIZATION": "Οργανισμός",
+    "ORGANIZATIONS": "Οργανισμοί",
+
+    "PAGE_ENTITIES": "ΑΝΤΙΚΕΙΜΕΝΑ ΣΕΛΙΔΑΣ",
+    "PAGES": "Σελίδες",
+    "PARENT_COMPONENT": "Parent Component",
+    "PARENTALELIGIBILITYFLG": "Πατρικό αντικείμενο",
+    "PENDING_REQUESTS": "ΕΚΚΡΕΜΗ ΑΙΤΗΜΑΤΑ",
+    "PENDING_REQUESTS_SUBTITLE": "Αιτήσεις σε αναμονή για ενέργεια",
+    "PERMSLISTFLG": "Λίστα δικαιωμάτων",
+    "PERMS_PER_PAGE": "Δικαιώματα ανά Σελίδα",
+    "PHONE": "Τηλέφωνο",
+
+    "REQUEST_DATETIME": "Ημερομηνία αιτήματος",
+    "REQUEST_DT": "Ημερ/νία Υποβολής",
+    "REQUEST_STATUS": "Καταστάσεις Αιτημάτων Πρ.",
+    "RESOURCE_LABEL": "Περιγραφή",
+    "RESOURCE_LABEL_KEY": "Πόρος",
+    "ROLE": "Ρόλος",
+    "ROLES": "Ρόλοι",
+    "ROLES_REQUEST_ADD": "ΟΙ ΡΟΛΟΙ ΠΟΥ ΑΙΤΕΙΤΑΙ Ο ΧΡΗΣΤΗΣ",
+
+    "SEC_GEN_PARAMS": "Παράμετροι",
+    "SECOND_PHONE": "Τηλέφωνο (2ος αριθμός)",
+    "SEVERITYLEVEL": "Ένδειξη Κρισιμότητας Ελέγχου",
+    "SOURCE_LABEL_KEY": "Κλειδί πηγής",
+    "START_DATE": "Έναρξη Ισχύος",
+    "START_DT": "Έναρξη Ισχύος",
+    "STATUS": "Κατάσταση",
+    "SUPERVISOR": "Προϊστάμενος",
+
+    "TAG_NAME": "Tag Name",
+    "TYPE": "Τύπος",
+
+    "URL": "API - URLS",
+    "USER": "Χρήστης",
+    "USER_INFO": "Στοιχεία Χρήστη",
+    "USER_PASSWORD": "Συνθηματικό Χρήστη",
+    "USER_USERNAME": "Ψευδώνυμο Χρήστη",
+    "USERNAME": "Όνομα χρήστη",
+    "USERS": "Διαχείριση Χρηστών / Χρήστες",
+    "USER_EMAIL_TOASTER": "Παρακαλούμε συμπληρώστε το email και το IBAN σας για να συνεχίσετε."
+  },
+  "ANAGELIA": {
+    "REASON_FOR_LATEST_STATUS_CHANGE": "Αιτιολογία τελευταίας αλλαγής κατάστασης"
+  },
+  "CALENDAR": {
+    "ANAGELIA": "Αναγγελία",
+    "ASSIGNED_TO": "Ανάθεση σε",
+    "AVAILABLE_HOURS": "Διαθέσιμες Ώρες",
+    "AVAILABLE_POSITION": "διαθέσιμες θέσεις",
+    "APPOINTMENTS": "Ραντεβού",
+    "APPOINT_TYPE": "Τυπος ραντεβού",
+
+    "BY_AVAILABILITY": "Βάσει διαθεσιμότητας",
+
+    "CANCEL_APPOINTMENT_WARNING": "Είστε σίγουρος ότι θέλετε να ακυρώσετε τo ραντεβού σας;",
+    "CATEGORY": "Κατηγορία ραντεβού",
+    "CREATE_APPOINTMENT": "Δημιουργία Ραντεβού",
+    "CUSTOM_HOUR_END": "Ώρα λήξης",
+    "CUSTOM_HOUR_START": "Ώρα έναρξης",
+    "CUSTOM_TIME": "Προσαρμοσμένη ώρα",
+
+    "DATE": "Νέα Ημερομηνία Ραντεβού",
+    "DAYS_TIMES_EVENTS": {
+      "agenda": "Λίστα",
+      "allDay": "Όλη την ημέρα",
+      "date": "Ημερομηνία",
+      "day": "Ημέρα",
+      "event": "Εκδήλωση",
+      "month": "Μήνας",
+      "next": "Επόμενο",
+      "previous": "Προηγούμενο",
+      "time": "Ώρα",
+      "today": "Σήμερα",
+      "week": "Εβδομάδα"
+    },
+    "DELETE_APPOINTMENT": "Διαγραφή Ραντεβού",
+    "EDIT_APPOINTMENT": "Επεξεργασία Ραντεβού",
+
+    "EIDOS": "Κωδικός Είδους",
+
+    "HOUR_RANGE": "Εύρος ωρών",
+
+    "INSERT_APPOINTMENT": "Νέο Ραντεβού",
+
+    "MAT_CATEG": "Κατηγορία Υλικού",
+    "MAT_OBJ_TYPE": "Τύπος Υλικού",
+
+    "NO_AVAILABLE_HOURS": "Δεν βρέθηκαν διαθέσιμες ώρες",
+
+    "PRESELECTED_TIME": "Προεπιλεγμένη ώρα",
+    "PRESELECTED_DATE": "Προεπιλεγμένη ημερομηνία",
+
+    "SELECT_TIME_PROMPT": "επιλέξτε εύρος ωρών",
+
+    "TIME_END_BEFORE_START": "η ώρα λήξης πρέπει να είναι μεγαλύτερη απο την ώρα έναρξης",
+    "TIME_INVALID": "invalid time",
+
+    "USER": "Χρήστης",
+
+    "VIEW_APPOINTMENT": "Στοιχεία Ραντεβού",
+
+    "YPALLILOS": "Υπάλληλος"
+  },
+  "DAYS": {
+    "FRIDAY": "Παρασκευή",
+    "MONDAY": "Δευτέρα",
+    "SATURDAY": "Σάββατο",
+    "SUNDAY": "Κυριακή",
+    "THURSDAY": "Πέμπτη",
+    "TUESDAY": "Τρίτη",
+    "WEDNESDAY": "Τετάρτη"
+  },
+  "ERP": {
+    "REPORT_FORM": "Φόρμα Εκτύπωσης",
+    "REPORT_FORM_LABEL": "Επιλογή Eκτυπωτικού"
+  },
+  "FILTERS": {
+    "ALL": "Όλες",
+
+    "COST_ESTIMATES_APPROVAL": "Κοστολογήσεις Προς έγκριση",
+
+    "FINALIZED": "Οριστικοποιημένες",
+
+    "MY_COST_ESTIMATES": "Οι κοστολογήσεις μου",
+
+    "PENDING": "Εκκρεμείς",
+    "PENDING_COST_ESTIMATES": "Εκκρεμείς κοστολογήσεις",
+    "PENDING_COSTING_CORRECTIONS": "Εκκρεμείς διορθώσεις κοστολογήσεων",
+    "PENDING_FOR_REVIEW": "Εκκρεμείς για έλεγχο",
+    "PENDING_FORM_APPLICANT": "Εκκρεμείς σε αιτούντα",
+    "PENDING_FROM_POSSESSION": "Εκκρεμείς από Διακατέχουσα",
+
+    "PENDING_REQUESTS_FILTER": "Εκκρεμή Αιτήματα",
+    "PENDING_AADE_REQUESTS_FILTER": "Εκκρεμή Αιτήματα Διάθεσης σε ΑΑΔΕ",
+    "PENDING_PUBLIC_ENTITY_REQUESTS_FILTER": "Εκκρεμή Αιτήματα Διάθεσης σε Φορέα δημοσίου",
+    "ALL_REQUESTS_FILTER": "Όλα",
+    "FINALIZED_REQUESTS_FILTER": "Οριστικοποιημένα",
+
+    "WON_AUCTIONS": "Κερδισμένοι Πλειστηριασμοί",
+    "LOST_AUCTIONS": "Χαμένοι Πλειστηριασμοί"
+  },
+  "MENU": {
+    "citizen": "Πολίτης",
+    "default": "Menu",
+    "erp": "ERP",
+    "pef": "Εξωτερικός Φορέας"
+  },
+  "OPERATORS": {
+    "AFTER": "Μετά",
+    "AND": "Και",
+
+    "BEFORE": "Πριν",
+    "BETWEEN": "Ανάμεσα",
+    "BIGGER": "Μεγαλυτέρο",
+    "BIGGER_THAN": "Μεγαλυτέρο από",
+
+    "CONTAINS": "Περιέχει",
+
+    "ENDS_WITH": "Τελειώνει με",
+    "EQUALS": "Ισούται",
+
+    "IS": "Είναι",
+    "IS_EMPTY": "Είναι κενό",
+    "IS_NOT_EMPTY": "Δεν είναι κενό",
+
+    "LESS": "Μικροτέρο",
+    "LESS_THAN": "Μικροτέρο από",
+
+    "NOT": "Δεν είναι",
+    "NOT_BETWEEN": "Όχι ανάμεσα",
+    "NOT_EQUALS": "Δεν ισούται",
+
+    "ON_OR_AFTER": "Από ή μετά",
+    "ON_OR_BEFORE": "Από ή πριν",
+
+    "STARTS_WITH": "Ξεκινάει με"
+  },
+  "YPIRESIES_FOREIS": {
+    "APOTHIKES_YPIRESIAS": "Αποθήκες Υπηρεσίας",
+
+    "STOIXEIA_EPIKOINONIAS_YPIRESIAS": "Στοιχεία Επικοινωνίας Υπηρεσίας",
+    "STOIXEIA_PLIROMIS_YPIRESIAS": "Στοιχεία Πληρωμής Υπηρεσίας",
+
+    "XRISTES_YPITESIAS": "Χρήστες Υπηρεσίας"
+  }
+}

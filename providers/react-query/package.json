@@ -1,0 +1,9 @@
+{
+   "name": "@providers/react-query",
+   "version": "1.0.0",
+   "main": "ReactQueryProvider.tsx",
+   "types": "ReactQueryProvider.tsx",
+   "scripts": {
+      "build": "tsc"
+   }
+}
