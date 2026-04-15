@@ -2,13 +2,14 @@
 
 import { useTranslations } from "next-intl";
 import { LinearProgress } from "@mui/material";
-import useOptions from "../app/[locale]/selects/useOptions";
+import useOptions from "@/app/[locale]/elements/useOptions";
 import { useGlobalStore } from "@/store/globalStore";
 import useLoadNotify from "@/lib/hooks/useApi/useLoadNotify";
 import AdvancedDataTable, { useTableData } from "@/lib/CustomTable";
 import { encodeURIByParams } from "@/lib/utils";
 import { DefaultAddProps, DefaultEditProps } from "@/lib/interfaces";
-import { generateColumns } from "../app/[locale]/selects/utils";
+import { _columns } from "@/app/[locale]/elements/columns";
+import { T } from "@/lib/types/next-auth";
 
 interface QueryParams {
   page: number;
@@ -22,7 +23,7 @@ function ReusableTable({
   variable,
 }: {
   id: string;
-  variable: any;
+  variable: unknown;
   title?: string;
 }) {
   const queryKey = `selects.${id}`;
@@ -31,7 +32,7 @@ function ReusableTable({
   const t = useTranslations();
   const { callRequest } = useLoadNotify();
   const { modalOptions, isOptionsLoading } = useOptions();
-  const columns = generateColumns(t, variable);
+  const columns = _columns(t as T);
 
   const {
     rows,
@@ -47,8 +48,8 @@ function ReusableTable({
     pageSize: 10,
     staleTime: 0, // Disable cache for testing
     refetchOnWindowFocus: true,
-    queryFn: async ({ page, pageSize, filters, sortString }: QueryParams) => {
-      const URIparams = encodeURIByParams({
+    queryFn: async ({ page, pageSize, sortString }: QueryParams) => {
+      void encodeURIByParams({
         pageNo: page,
         pageSize,
         sort: sortString,

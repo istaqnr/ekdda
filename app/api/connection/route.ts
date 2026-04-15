@@ -1,4 +1,4 @@
-import { connectToDatabase } from "@/db/mongo";
+import { connectToDatabase } from "@/shared/server/db/mongo";
 import { NextResponse } from "next/server";
 
 export async function GET() {

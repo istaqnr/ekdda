@@ -1,8 +1,8 @@
 // src/app/api/import/raw/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { CanonicalEraRecord } from "./model";
-import { connectToDatabase } from "@/db/mongo";
-import { CanonicalEraRecordModel } from "@/db/models.mongo";
+import { connectToDatabase } from "@/shared/server/db/mongo";
+import { CanonicalEraRecordModel } from "@/shared/server/db/models.mongo";
 
 interface RawImportPayload {
   sourceSystem: string;
