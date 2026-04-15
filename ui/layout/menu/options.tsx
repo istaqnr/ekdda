@@ -24,6 +24,62 @@ const baseUrl = process.env.NEXT_PUBLIC_PROXY_BASE_URL || "";
 
 export const getMenuOptions = (): MenuItemType[] => [
   {
+    id: 100,
+    label: "Σεμινάρια",
+    href: `${baseUrl}/el/portal/seminaria`,
+    icon: LibraryBooks,
+    type: "link",
+  },
+  {
+    id: 101,
+    label: "Καλάθι",
+    href: `${baseUrl}/el/portal/kalathi`,
+    icon: ListAltIcon,
+    type: "link",
+  },
+  {
+    id: 102,
+    label: "Υποβολή Αίτησης",
+    href: `${baseUrl}/el/portal/ypovoli-aitisis`,
+    icon: AppRegistrationIcon,
+    type: "link",
+  },
+  {
+    id: 103,
+    label: "Δήλωση Δικαιολογητικών και Στοιχείων σε Επιμορφωτικά Προγράμματα",
+    href: `${baseUrl}/el/portal/dilosi-dikaiologitikon`,
+    icon: TableChartIcon,
+    type: "link",
+  },
+  {
+    id: 104,
+    label: "Προσωποποίηση Λογαριασμού",
+    href: `${baseUrl}/el/portal/prosopopoiisi-logariasmou`,
+    icon: PeopleIcon,
+    type: "link",
+  },
+  {
+    id: 105,
+    label: "Αξιολόγηση",
+    href: `${baseUrl}/el/portal/axiologisi`,
+    icon: SwapHorizIcon,
+    type: "link",
+  },
+  {
+    id: 106,
+    label: "Απεργίες",
+    href: `${baseUrl}/el/portal/apergies`,
+    icon: TrainIcon,
+    type: "link",
+  },
+  {
+    id: 107,
+    label: "WEBEX-ΕΚΠΑΙΔΕΥΣΕΙΣ",
+    href: `${baseUrl}/el/portal/webex-ekpaideuseis`,
+    icon: SettingsIcon,
+    type: "link",
+  },
+  {
     id: 1,
     label: "Operational Point",
     type: "folder",
