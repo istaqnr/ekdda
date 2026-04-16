@@ -1,16 +1,22 @@
 import { notFound } from "next/navigation";
 import { SectionHeader } from "@/lib/SectionHeader";
+import { getTranslations } from "next-intl/server";
 
 const sectionTitleMap: Record<string, string> = {
-  seminaria: "Σεμινάρια",
-  kalathi: "Καλάθι",
-  "ypovoli-aitisis": "Υποβολή Αίτησης",
+  seminaria: "SEMINARS",
+  kalathi: "CART",
+  "ypovoli-aitisis": "APPLICATION_SUBMIT",
   "dilosi-dikaiologitikon":
-    "Δήλωση Δικαιολογητικών και Στοιχείων σε Επιμορφωτικά Προγράμματα",
-  "prosopopoiisi-logariasmou": "Προσωποποίηση Λογαριασμού",
-  axiologisi: "Αξιολόγηση",
-  apergies: "Απεργίες",
-  "webex-ekpaideuseis": "WEBEX-ΕΚΠΑΙΔΕΥΣΕΙΣ",
+    "DECLARATION",
+  "prosopopoiisi-logariasmou": "ACCOUNT_PERSONALIZATION",
+  axiologisi: "EVALUATION",
+  apergies: "STRIKES",
+  "webex-ekpaideuseis": "WEBEX_TRAININGS",
+  "prosopika-stoixeia": "PERSONAL_DETAILS",
+  pistopoiitika: "CERTIFICATES",
+  vevaiwseis: "ATTESTATIONS",
+  "vevaiwseis-oikonomikwn": "FINANCIAL_ATTESTATIONS",
+  "allagi-xristi": "SWITCH_USER",
 };
 
 type Props = {
@@ -19,7 +25,9 @@ type Props = {
 
 export default async function PortalSectionPage({ params }: Props) {
   const { section } = await params;
-  const sectionTitle = sectionTitleMap[section];
+  const t = await getTranslations();
+  const sectionKey = sectionTitleMap[section];
+  const sectionTitle = sectionKey ? t(`PORTAL_MENU.${sectionKey}`) : null;
 
   if (!sectionTitle) {
     notFound();
@@ -29,7 +37,7 @@ export default async function PortalSectionPage({ params }: Props) {
     <div className="px-3 py-5">
       <SectionHeader pageTitle={sectionTitle} />
       <div className="mx-auto mt-6 max-w-4xl rounded-md border border-slate-200 bg-white p-6 text-slate-700">
-        Η σελίδα για «{sectionTitle}» ενεργοποιήθηκε στο νέο menu.
+        {t("PORTAL.PAGE_READY", { section: sectionTitle })}
       </div>
     </div>
   );

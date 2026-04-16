@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useGlobalStore } from "@/store/globalStore";
+import { useTranslations } from "next-intl";
 
 import MenuOptions from "./MenuOptions";
 import { getMenuOptions } from "./options";
@@ -21,8 +22,9 @@ interface Props {
 export const Menu = ({ isMobile }: Props) => {
   const [searchKeyword, setSearchKeyword] = useState<string>("");
   const { mobileMenuOpen, setMobileMenuOpen } = useGlobalStore();
+  const t = useTranslations();
 
-  const options = getMenuOptions();
+  const options = getMenuOptions(t);
 
   const filterMenu = (
     menuOptions: MenuItemType[],
@@ -70,7 +72,7 @@ export const Menu = ({ isMobile }: Props) => {
         {/* Menu Panel */}
         <div
           className={`fixed left-0 h-[calc(100vh-80px)] overflow-auto pb-5 bg-white w-full rounded-xl z-50 pt-3 flex flex-col gap-2 transition-all duration-500 select-none ${
-            mobileMenuOpen ? "bottom-0" : "bottom-[-100%]"
+            mobileMenuOpen ? "bottom-0" : "-bottom-full"
           }`}
           style={{ WebkitOverflowScrolling: "touch" }}
         >

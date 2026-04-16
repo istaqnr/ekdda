@@ -451,5 +451,31 @@
     "STOIXEIA_PLIROMIS_YPIRESIAS": "Service Payment info",
 
     "XRISTES_YPITESIAS": "Service Users"
+  },
+  "PORTAL_MENU": {
+    "SEMINARS": "Seminars",
+    "CART": "Cart",
+    "APPLICATION_SUBMIT": "Application Submit",
+    "DECLARATION": "Declaration of Documents and Information for Training Programs",
+    "ACCOUNT_PERSONALIZATION": "Account Personalization",
+    "EVALUATION": "Evaluation",
+    "STRIKES": "Strikes",
+    "WEBEX_TRAININGS": "WEBEX-TRAININGS",
+    "PERSONAL_DETAILS": "Personal Details",
+    "CERTIFICATES": "Certificates",
+    "ATTESTATIONS": "Attestations",
+    "FINANCIAL_ATTESTATIONS": "Financial Attestations",
+    "SWITCH_USER": "Switch User"
+  },
+  "PORTAL": {
+    "PAGE_READY": "The page for \"{section}\" is enabled in the new menu."
+  },
+  "DEMO": {
+    "TITLE": "Demo Table & Form",
+    "ADD_ROW_TITLE": "Add row (Form components)",
+    "NAME": "Name",
+    "EMAIL": "Email",
+    "ACTIVE": "Active",
+    "ADD_TO_LIST": "Add to list"
   }
 }

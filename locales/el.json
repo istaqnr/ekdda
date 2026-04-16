@@ -457,5 +457,31 @@
     "STOIXEIA_PLIROMIS_YPIRESIAS": "Στοιχεία Πληρωμής Υπηρεσίας",
 
     "XRISTES_YPITESIAS": "Χρήστες Υπηρεσίας"
+  },
+  "PORTAL_MENU": {
+    "SEMINARS": "Σεμινάρια",
+    "CART": "Καλάθι",
+    "APPLICATION_SUBMIT": "Υποβολή Αίτησης",
+    "DECLARATION": "Δήλωση Δικαιολογητικών και Στοιχείων σε Επιμορφωτικά Προγράμματα",
+    "ACCOUNT_PERSONALIZATION": "Προσωποποίηση Λογαριασμού",
+    "EVALUATION": "Αξιολόγηση",
+    "STRIKES": "Απεργίες",
+    "WEBEX_TRAININGS": "WEBEX-ΕΚΠΑΙΔΕΥΣΕΙΣ",
+    "PERSONAL_DETAILS": "Προσωπικά Στοιχεία",
+    "CERTIFICATES": "Πιστοποιητικά",
+    "ATTESTATIONS": "Βεβαιώσεις",
+    "FINANCIAL_ATTESTATIONS": "Βεβαιώσεις Οικονομικών",
+    "SWITCH_USER": "Αλλαγή Χρήστη"
+  },
+  "PORTAL": {
+    "PAGE_READY": "Η σελίδα για «{section}» ενεργοποιήθηκε στο νέο menu."
+  },
+  "DEMO": {
+    "TITLE": "Demo Table & Form",
+    "ADD_ROW_TITLE": "Προσθήκη γραμμής (Form components)",
+    "NAME": "Όνομα",
+    "EMAIL": "Email",
+    "ACTIVE": "Ενεργός",
+    "ADD_TO_LIST": "Προσθήκη στη λίστα"
   }
 }
