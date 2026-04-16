@@ -412,7 +412,9 @@
     "citizen": "Citizen",
     "default": "Menu",
     "erp": "ERP",
-    "pef": "External Organization"
+    "pef": "External Organization",
+    "LANGUAGE_GREEK": "Greek",
+    "LANGUAGE_ENGLISH": "English"
   },
   "OPERATORS": {
     "AFTER": "After",

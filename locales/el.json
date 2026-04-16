@@ -418,7 +418,9 @@
     "citizen": "Πολίτης",
     "default": "Menu",
     "erp": "ERP",
-    "pef": "Εξωτερικός Φορέας"
+    "pef": "Εξωτερικός Φορέας",
+    "LANGUAGE_GREEK": "Ελληνικά",
+    "LANGUAGE_ENGLISH": "Αγγλικά"
   },
   "OPERATORS": {
     "AFTER": "Μετά",
